@@ -1,0 +1,59 @@
+.main {
+    height: 300px;
+    position: fixed;
+    width: 50%;
+    background-color: #EA6F5A;
+    z-index: 999;
+    margin-left: 10%;
+    margin-top: 5%;
+    border: 1px solid #C73E3A;
+    box-sizing: border-box;
+    label {
+        display: block;
+        width: 40%;
+        margin-left: 30%;
+        margin-top: 20px;
+        color: white;
+        input {
+            display: block;
+            border: 1px solid white;
+            color: #C73E3A;
+            height: 20px;
+            font-size: 15px;
+            line-height: 20px;
+            width: 100%;
+            margin-top: 5px;
+            font-weight: 400;
+            &:focus {
+                outline: null;
+            }
+        }
+    }
+    .submit {
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        z-index: 20;
+        color: #EA6F5A;
+        text-align: center;
+        line-height: 300px;
+        font-size: 30px;
+        font-weight: 100;
+        position: absolute;
+        border: 1px solid #C73E3A;
+        box-sizing: border-box;
+    }
+}
+
+.submitbutton {
+    margin: 20px auto;
+    width: 50px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 25px;
+    background: white;
+    color: #EA6F5A;
+    border: 0;
+    font-weight: 400;
+}

@@ -1,0 +1,53 @@
+.header {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #E9E9E9;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color:#C73E3A;
+    a{color:#EA6F5A;
+    }
+}
+
+.input {
+    margin-top: 30px;
+    width: 80%;
+    height: 300px;
+    margin-left: 10%;
+    &:focus{
+        outline: null;
+    }
+}
+.section{
+      width: 100%;
+      border-bottom: 1px solid #E9E9E9;
+}
+
+.trans {
+    height: 30px;
+    width: 80px;
+    margin: 20px auto;
+    background-color: #EA6F5A;
+    display: block;
+    color:white;
+}
+.documentsec {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+.footer {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    color: grey;
+    cursor: pointer;
+    &:hover {
+        background-color: #EBEBEB;
+        color: black;
+    }
+}

@@ -1,0 +1,39 @@
+.title {
+    height: 50px;
+    width: 100%;
+    background-color: #EA6F5A;
+    color: white;
+    position: fixed;
+    z-index: 999;
+    box-shadow: 0 2px 22px grey;
+    .ul{
+    	height: 50px;
+    	position: absolute;
+    	top: 0;
+    	.logo{
+    		margin-right: 20px;
+    		a{
+    			line-height: 50px;
+                    color: white;
+    		}
+    		&:hover{
+    			cursor:pointer;
+    			background-color:#EA6F5A;
+    		}
+    	}
+       	li{
+    		list-style: none;
+    		line-height: 50px;
+    		font-size: 20px;
+    		float: left;
+    		text-align: center;padding-left: 10px;padding-right: 10px;
+            a{
+                 color: white;
+            }
+    		&:hover{
+    			cursor:pointer;
+    			background-color:#EC6149;
+    		}
+    	}
+    }
+}
