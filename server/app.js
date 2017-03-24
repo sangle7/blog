@@ -23,14 +23,7 @@ app.all('*', function(req, res, next) {
 	next();
 });
 
-app.get('/', function(req, res) {
-	console.log(req.headers['user-agent'])
-	if (/Android/.test(req.useragent)) {
 
-	} else {
-		app.use(express.static(path.join(__dirname, '..', 'build')))
-	}
-})
 app.get('/home', function(req, res) {
 	res.send('发送成功!');
 	var client = mysql.createConnection({
