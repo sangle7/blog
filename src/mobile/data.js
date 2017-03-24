@@ -22,15 +22,30 @@ export let recommendData = [{
 }]
 
 export let documentData = [{
-	name: '编程成长之道——通过思考来升华自己',
-	url: '/articles/编程/0',
-	date: '2017-03-03',
+	name: '前端面试题目整理II',
+	url: '/articles/编程/前端面试题目整理II',
+	date: '2017-03-22',
 	category: '编程',
 }, {
-	name: 'Redux',
-	url: '/articles/编程/1',
+	name: '前端面试题目整理I',
+	url: '/articles/编程/前端面试题目整理I',
+	date: '2017-03-21',
 	category: '编程',
-	date: '2017-01-03'
+}, {
+	name: '前端面试题目整理III',
+	url: '/articles/编程/前端面试题目整理III',
+	date: '2017-03-23',
+	category: '编程',
+}, {
+	name: '前端面试题目整理IV',
+	url: '/articles/编程/前端面试题目整理IV',
+	date: '2017-03-24',
+	category: '编程',
+}, {
+	name: 'what if...',
+	url: '/articles/生活/what if',
+	date: '2017-02-19',
+	category: '生活',
 }, {
 	name: 'ES6语言规范',
 	url: '/articles/生活/0',
@@ -52,48 +67,25 @@ export let documentData = [{
 	category: '编程',
 	date: '2017-03-14'
 }, {
-	name: '博客搭建过程整理',
-	url: '/articles/编程/博客搭建过程整理',
+	name: '兼容性和优化',
+	url: '/articles/编程/兼容性和优化',
 	category: '编程',
-	date: '2017-03-16'
+	date: '2017-03-21'
 }, {
-	name: '代码规范',
-	url: '/articles/5',
-	date: '2016-10-11'
-}, {
-	name: '计算机网络基础',
-	url: '/articles/5',
-	date: '2016-10-11'
-}, {
-	name: '编程成长之道——通过思考来升华自己',
-	url: '/articles/编程/0',
-	date: '2017-03-03',
+	name: 'CSS 复习',
+	url: '/articles/编程/CSS复习',
 	category: '编程',
+	date: '2017-03-20'
 }, {
-	name: 'Redux',
-	url: '/articles/编程/1',
+	name: 'Start With HTML',
+	url: '/articles/编程/Start With HTML',
 	category: '编程',
-	date: '2017-01-03'
-}, {
-	name: 'ES6语言规范',
-	url: '/articles/生活/0',
-	category: '生活',
-	date: '2016-10-11'
-}, {
-	name: 'SCSS教程',
-	url: '/articles/生活/1',
-	category: '生活',
-	date: '2016-10-11'
+	date: '2017-03-20'
 }, {
 	name: '初识mySQL',
 	url: '/articles/编程/mySQL',
 	category: '编程',
 	date: '2017-03-17'
-}, {
-	name: 'React-router使用踩坑经历',
-	url: '/articles/编程/3',
-	category: '编程',
-	date: '2017-03-14'
 }, {
 	name: '博客搭建过程整理',
 	url: '/articles/编程/博客搭建过程整理',
@@ -104,17 +96,12 @@ export let documentData = [{
 	category: '生活',
 	url: '/articles/生活/markdown基本语法',
 	date: '2017-01-11'
-}, {
-	name: 'webpack概念',
-	category: '编程',
-	url: '/articles/编程/webpack概念',
-	date: '2016-12-11'
 }]
 
 export let musicData = [{
 	name: 'A Lovely Night',
 	artist: 'Emma Stone & Ryan Gosling',
-	url: '',
+	url: 'http://link.hhtjim.com/163/445867335.mp3',
 	cover: 'https://img3.doubanio.com/lpic/s29315732.jpg'
 }, {
 	name: '二人セゾン',
