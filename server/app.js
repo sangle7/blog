@@ -12,7 +12,7 @@ var TEST_DATABASE = 'musics';
 var TEST_TABLE = 'musicrecommand';
 
 // app.use(useragent.express());
-app.use(express.static(path.join(__dirname, '..', 'buildmobile')))
+app.use(express.static(path.join(__dirname, '..', 'build')))
 
 app.all('*', function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
