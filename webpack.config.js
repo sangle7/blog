@@ -8,7 +8,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, "browser/build"),
 		filename: 'bundle.js',
-		publicPath: "/browser/",
+		publicPath: "/build/",
 	},
 	devServer: {
 		historyApiFallback: true,
