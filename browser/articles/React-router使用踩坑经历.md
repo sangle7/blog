@@ -1,5 +1,3 @@
-# React-router使用踩坑经历
-
 ## 安装
 
 > `npm install react-douter-dom`

@@ -1,24 +1,21 @@
 export let recommendData = [{
 	name: 'React-router使用踩坑经历',
-	url: '/articles/编程/3'
+	url: '/articles/编程/React-router使用踩坑经历'
 }, {
-	name: 'Redux',
-	url: 'http://redux.js.org/'
-}, {
-	name: 'ES6语言规范',
-	url: 'http://es6.ruanyifeng.com/'
+	name: '前端面试题目整理IV',
+	url: '/articles/编程/前端面试题目整理IV'
 }, {
 	name: '博客搭建过程整理',
 	url: '/articles/编程/博客搭建过程整理'
 }, {
-	name: 'Webpack2.2 中文文档',
-	url: 'http://www.css88.com/doc/webpack2/'
-}, {
 	name: '初识mySQL',
-	url: '/articles/编程/mySQL'
+	url: '/articles/编程/初识mySQL'
 }, {
 	name: 'JS高级程序设计整理',
-	url: '/articles/编程/2'
+	url: '/articles/编程/JS高级程序设计整理'
+}, {
+	name: 'CSS复习',
+	url: '/articles/编程/CSS复习'
 }]
 
 export let documentData = [{
@@ -43,27 +40,27 @@ export let documentData = [{
 	category: '编程',
 }, {
 	name: 'what if...',
-	url: '/articles/生活/what if',
+	url: '/articles/生活/what if...',
 	date: '2017-02-19',
 	category: '生活',
 }, {
 	name: 'ES6语言规范',
-	url: '/articles/生活/0',
+	url: '/articles/生活/ES6语言规范',
 	category: '生活',
 	date: '2016-10-11'
 }, {
 	name: 'SCSS教程',
-	url: '/articles/生活/1',
+	url: '/articles/生活/SCSS教程',
 	category: '生活',
 	date: '2016-10-11'
 }, {
 	name: 'JS高级程序设计整理',
-	url: '/articles/编程/2',
+	url: '/articles/编程/JS高级程序设计整理',
 	category: '编程',
 	date: '2017-03-13'
 }, {
 	name: 'React-router使用踩坑经历',
-	url: '/articles/编程/3',
+	url: '/articles/编程/React-router使用踩坑经历',
 	category: '编程',
 	date: '2017-03-14'
 }, {
@@ -72,7 +69,7 @@ export let documentData = [{
 	category: '编程',
 	date: '2017-03-21'
 }, {
-	name: 'CSS 复习',
+	name: 'CSS复习',
 	url: '/articles/编程/CSS复习',
 	category: '编程',
 	date: '2017-03-20'
@@ -83,7 +80,7 @@ export let documentData = [{
 	date: '2017-03-20'
 }, {
 	name: '初识mySQL',
-	url: '/articles/编程/mySQL',
+	url: '/articles/编程/初识mySQL',
 	category: '编程',
 	date: '2017-03-17'
 }, {

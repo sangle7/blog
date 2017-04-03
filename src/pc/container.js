@@ -22,8 +22,10 @@ export default class Container extends React.Component {
 		<Switch>
 		<Route exact path='/' component={Articlelist}/>
 		<Route path='/pc' component={Articlelist}/>
-		<Route path="/articles/:name/:id" component={Article}/>
-		<Route path="/articles/:cat" component={Articlelist}/>
+		<Route exact path="/articles/编程" component={Articlelist}/>
+		<Route exact path="/articles/生活" component={Articlelist}/>
+		<Route path="/articles/编程/:id" component={Article}/>
+		<Route path="/articles/生活/:id" component={Article}/>
 		<Route path="/music" component={Musicplayer}/>
 		<Route path="/tools" component={MarkdownEditor}/>
 		<Route path="/aboutme" component={Aboutme}/>

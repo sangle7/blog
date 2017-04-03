@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./css/container.scss";
 import {
-	BrowserRouter as Router,
-	Route,
 	Link
 } from 'react-router-dom';
 import hljs from 'highlight.js';
@@ -17,14 +15,17 @@ import {
 export default @observer class Article extends React.Component {
 	constructor(props) {
 		super(props);
-
 	}
 	componentWillMount() {
-		AppState.initArticle(this.props.match.params.name, this.props.match.params.id)
+		AppState.initArticle(this.props.match.params.id)
 	}
 	componentWillUnmount() {
 		hljs.initHighlighting.called = false;
 		AppState.init();
+	}
+	componentWillUpdate(nextProps) {
+		hljs.initHighlighting.called = false;
+		AppState.initArticle(nextProps.match.params.id)
 	}
 	handlePrint() {
 		let newstr = this.refs.realdocument.innerHTML;

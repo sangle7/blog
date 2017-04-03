@@ -25,10 +25,16 @@ export default @observer class Articlelist extends React.Component {
 
 	render() {
 		let document_, categoryrender;
-		if (this.props.match.params.cat) {
-			categoryrender = '> ' + this.props.match.params.cat;
+		let arr = ['编程', '生活']
+		let cat = arr.filter((elem) => {
+			if (this.props.location.pathname.indexOf(elem) > 0) {
+				return elem;
+			}
+		})
+		if (cat[0]) {
+			categoryrender = '> ' + cat[0];
 			document_ = documentData.filter((elem) => {
-				if (elem.category == this.props.match.params.cat)
+				if (elem.category == cat[0])
 					return elem
 			});
 		}

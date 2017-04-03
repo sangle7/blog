@@ -30,7 +30,8 @@ export const AppState = observable({
 	playtime: '-00:00',
 	timelinewidth: 0,
 	articleNumber: 0,
-	pauseandplay: 'fa fa-pause'
+	pauseandplay: 'fa fa-pause',
+	articlecache: {}
 });
 
 AppState.init = function() {
@@ -55,43 +56,32 @@ AppState.showMoreMusics = function() {
 AppState.showMoreArticles = function() {
 	this.articleNumber += 10;
 }
-AppState.initArticle = function(a, b) {
+AppState.initArticle = function(a) {
 	let _xxx = documentData.filter((elem) => {
-		if (elem.url == '/articles/' + a + '/' + b) {
+		if (elem.name == a) {
 			return elem;
 		}
 	})
-	this.article = _xxx[0];
-	this.changeAriticle("../" + _xxx[0].name + '.md')
+	if (this.article == null || this.article.name !== _xxx[0].name) {
+		this.article = _xxx[0];
+		this.changeAriticle("../" + a + '.md')
+	}
 }
 AppState.MDtoHTML = function(value) {
 	hljs.initHighlighting.called = false;
 	this.mdcontent = marked(value)
 }
 AppState.changeAriticle = function(aaa) {
-	this.AJAX(aaa)
-		.then((code) => {
-			this.articlecontent = marked(code)
-			hljs.initHighlighting();
-		})
-
-	function MDtoHTML(bbb) {
-		return new Promise((resolve, reject) => {
-			let req = new XMLHttpRequest();
-			let url = bbb;
-			req.open('get', url);
-			req.onload = function() {
-				if (req.status == 200) {
-					resolve(req.responseText)
-				} else {
-					reject(Error(req.statusText))
-				}
-			}
-			req.onError = function() {
-				reject(Error('error'))
-			}
-			req.send()
-		})
+	if (this.articlecache[aaa]) {
+		this.articlecontent = this.articlecache[aaa]
+		hljs.initHighlighting();
+	} else {
+		this.AJAX(aaa)
+			.then((code) => {
+				this.articlecontent = marked(code)
+				this.articlecache[aaa] = marked(code)
+				hljs.initHighlighting();
+			})
 	}
 }
 AppState.AJAX = function(url) {
