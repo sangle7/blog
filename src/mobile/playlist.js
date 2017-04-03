@@ -2,7 +2,7 @@ import React from "react";
 import style from "./css/container.scss";
 import {
 	musicData
-} from './data.js';
+} from './../data/data.js';
 import {
 	observer
 } from 'mobx-react';

@@ -9,6 +9,7 @@ import {
 ReactDOM.render(<Router>
 	<div>
 		<Route  exact path='/' component={Frontpage}/>
+		<Route  path='/pc' component={Frontpage}/>
 		<Route  path='/articles/编程' component={Frontpage}/>
 		<Route  path='/articles/生活' component={Frontpage}/>
 		<Route  path='/music' component={Frontpage}/>

@@ -12,9 +12,10 @@ var TEST_DATABASE = 'musics';
 var TEST_TABLE = 'musicrecommand';
 
 // app.use(useragent.express());
-app.use(express.static(path.join(__dirname, '..', 'build')))
+app.use(express.static(path.join(__dirname, '..', 'buildmobile')))
 
 app.all('*', function(req, res, next) {
+	res.header("Cache-control", "max-age");
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "X-Requested-With");
 	res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
@@ -24,6 +25,14 @@ app.all('*', function(req, res, next) {
 });
 
 
+app.get('/', function(req, res) {
+	console.log(req.headers['user-agent'])
+	if (/Android/.test(req.useragent)) {
+
+	} else {
+		app.use(express.static(path.join(__dirname, '..', 'build')))
+	}
+})
 app.get('/home', function(req, res) {
 	res.send('发送成功!');
 	var client = mysql.createConnection({

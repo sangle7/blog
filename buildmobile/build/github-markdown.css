@@ -9,9 +9,10 @@
   line-height: 1.5;
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
+  font-size: .8rem;
   line-height: 1.5;
   word-wrap: break-word;
+  overflow-x: scroll;
 }
 
 .markdown-body .pl-c {
@@ -138,7 +139,7 @@
 }
 
 .markdown-body h1 {
-  font-size: 2em;
+  font-size: 2rem;
   margin: 0.67em 0;
 }
 
@@ -154,7 +155,8 @@
 .markdown-body kbd,
 .markdown-body pre {
   font-family: monospace, monospace;
-  font-size: 1em;
+  font-size: 1rem;
+  overflow-x: scroll;
 }
 
 .markdown-body hr {
@@ -242,32 +244,32 @@
 }
 
 .markdown-body h1 {
-  font-size: 32px;
+  font-size: 1.5rem;;
   font-weight: 600;
 }
 
 .markdown-body h2 {
-  font-size: 24px;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
 .markdown-body h3 {
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
 .markdown-body h4 {
-  font-size: 16px;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 
 .markdown-body h5 {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .markdown-body h6 {
-  font-size: 12px;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -305,13 +307,13 @@
 
 .markdown-body code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
+  font-size: .8rem;
 }
 
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: .8rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .markdown-body .octicon {
@@ -586,7 +588,7 @@
 .markdown-body .highlight pre,
 .markdown-body pre {
   padding: 16px;
-  overflow: auto;
+  overflow: scroll;
   font-size: 100%;
   line-height: 1.45;
   background-color: #f7f7f7;
@@ -598,7 +600,7 @@
   max-width: auto;
   padding: 0;
   margin: 0;
-  overflow: visible;
+  overflow: scroll;
   line-height: inherit;
   word-wrap: normal;
   background-color: transparent;
@@ -646,7 +648,7 @@
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: .75rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
   line-height: 10px;
   color: #555;
   vertical-align: middle;

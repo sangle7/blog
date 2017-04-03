@@ -2,7 +2,7 @@ import React from "react";
 import style from "./css/sidebar.scss"
 import {
 	recommendData
-} from './data.js';
+} from './../data/data.js';
 import {
 	observer
 } from 'mobx-react';
@@ -30,7 +30,7 @@ export default @observer class Sidebar extends React.Component {
 
 		return (<div className={style.sidebar}>
 		<div className={style.personalinfo}>
-			<img src={require('./img/info.jpg')}className={style.infopic}/>
+			<img src={require('./../img/info.jpg')}className={style.infopic}/>
 			<p>Sangle</p>
 			</div>
 			<address className={style.address}>
@@ -48,7 +48,7 @@ export default @observer class Sidebar extends React.Component {
 				<div>
 				<i className="fa fa-weixin" aria-hidden="true"></i>
 				<a onMouseOver={this.handleHover.bind(this)} onMouseOut={this.handleOut.bind(this)} href="#"> Sangle</a>
-				<img style={{'display':AppState.wechat}}  className={style.wechaticon} src={require('./img/wechati.jpg')} height="150" width="150"/>
+				<img style={{'display':AppState.wechat}}  className={style.wechaticon} src={require('./../img/wechati.jpg')} height="150" width="150"/>
 				</div>
 				<div>
 				<i className="fa fa-envelope-o" aria-hidden="true"></i>

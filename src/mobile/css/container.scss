@@ -3,7 +3,7 @@
     width: 100%;
     margin-bottom: 100px;
     background: white;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .header {
@@ -24,7 +24,7 @@
     border-top: 1px solid #E9E9E9;
     border-bottom: 1px solid #E9E9E9;
     h1 {
-        font-size: 35px;
+        font-size: 1.5rem;
         font-weight: 700;
         margin-top: 20px;
     }
@@ -83,13 +83,10 @@
     text-align: center;
     font-size: 14px;
     padding: 10px;
+    box-sizing: border-box;
     color: grey;
     cursor: pointer;
     background-color: #FAFAFA;
-    &:hover {
-        background-color: #EBEBEB;
-        color: black;
-    }
 }
 
 .playlisttitle {

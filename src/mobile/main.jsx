@@ -20,6 +20,7 @@ ReactDOM.render(
 	<Router>
 	<div>
 		<Route  exact path='/' component={Frontpage}/>
+		<Route  path='/mobile' component={Frontpage}/>
 		<Route  path='/articles/编程/:art' component={Frontpage}/>
 		<Route  path='/articles/编程' component={Frontpage}/>
 		<Route  path='/articles/生活/:art' component={Frontpage}/>

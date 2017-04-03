@@ -4,14 +4,15 @@ const path = require('path');
 
 module.exports = {
 	name: "browser",
-	entry: "./src/main.jsx",
+	entry: "./src/pc/main.jsx",
 	output: {
-		path: path.join(__dirname, "build"),
+		path: path.join(__dirname, "browser/build"),
 		filename: 'bundle.js',
-		publicPath: "/build/",
+		publicPath: "/browser/",
 	},
 	devServer: {
 		historyApiFallback: true,
+		contentBase: 'browser'
 	},
 	devtool: 'inline-source-map',
 	module: {

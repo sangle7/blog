@@ -5,7 +5,7 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import {
 	documentData
-} from './data.js';
+} from './../data/data.js';
 
 
 marked.setOptions({
@@ -29,7 +29,8 @@ export const AppState = observable({
 	playing: 0,
 	playtime: '-00:00',
 	timelinewidth: 0,
-	articleNumber: 0
+	articleNumber: 0,
+	pauseandplay: 'fa fa-pause'
 });
 
 AppState.init = function() {
@@ -38,6 +39,9 @@ AppState.init = function() {
 	this.mdcontent = null;
 	this.articleNumber = 0;
 	this.musicNumber = 0;
+}
+AppState.changePlayAndPause = function() {
+	this.pauseandplay = this.pauseandplay == 'fa fa-play' ? 'fa fa-pause' : 'fa fa-play';
 }
 AppState.showWechatImg = function() {
 	this.wechat = 'block';
@@ -107,8 +111,7 @@ AppState.AJAX = function(url) {
 	});
 }
 AppState.poptipSubmit = function(a, b, c) {
-	let url = 'http://172.18.155.65:8080/home/?name=' + a + '&album=' + b + '&artist=' + c;
-	this.poptipsubmit = true;
+	let url = 'https://sangle.000webhostapp.com/server.php?name=' + a + '&album=' + b + '&artist=' + c;
 	this.AJAX(url)
 		.then((text) => { // 如果AJAX成功，获得响应内容
 			this.poptipsubmit = true;
@@ -126,9 +129,12 @@ AppState.hidePoptip = function() {
 AppState.nextSong = function() {
 	this.playing += 1;
 	this.playtime = '-00:00';
+	this.pauseandplay = 'fa fa-pause';
 }
 AppState.changePlaying = function(i) {
 	this.playing = i;
+	this.playtime = '-00:00';
+	this.pauseandplay = 'fa fa-pause';
 }
 AppState.musicPlaying = function(audio2) {
 	return setInterval(() => {

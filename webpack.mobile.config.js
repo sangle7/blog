@@ -6,12 +6,13 @@ module.exports = {
 	name: "mobile",
 	entry: "./src/mobile/main.jsx",
 	output: {
-		path: path.join(__dirname, "build"),
+		path: path.join(__dirname, "buildmobile/build"),
 		filename: 'bundle.js',
 		publicPath: "/build/",
 	},
 	devServer: {
 		historyApiFallback: true,
+		contentBase: 'buildmobile'
 	},
 	devtool: 'inline-source-map',
 	module: {

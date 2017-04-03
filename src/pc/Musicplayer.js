@@ -2,7 +2,7 @@ import React from "react";
 import style from "./css/musicplayer.scss";
 import {
 	musicData
-} from './data.js';
+} from './../data/data.js';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -29,7 +29,6 @@ export default @observer class Musicplayer extends React.Component {
 
 	nextSong() {
 		AppState.nextSong();
-		this.refs.pauseandplay.className = 'fa fa-pause'
 	}
 
 	playFromHere(event) {
@@ -40,14 +39,12 @@ export default @observer class Musicplayer extends React.Component {
 
 	pause(event) {
 		let audio = this.refs.audio;
+		AppState.changePlayAndPause();
 		if (audio.paused) {
-			event.nativeEvent.target.className = event.nativeEvent.target.className.replace(/play/, 'pause');
 			audio.play();
 		} else if (audio.ended) {
-			event.nativeEvent.target.className = event.nativeEvent.target.className.replace(/play/, 'pause');
 			audio.load();
 		} else {
-			event.nativeEvent.target.className = event.nativeEvent.target.className.replace(/pause/, 'play');
 			audio.pause();
 		}
 	}
@@ -77,7 +74,7 @@ export default @observer class Musicplayer extends React.Component {
 		<div ref='green' style={{'width':AppState.timelinewidth}}></div>
             </div>
         </div>
-        <div className={style.icons}><i className="fa fa-heart" aria-hidden="true"></i><i onClick={this.nextSong.bind(this)} className="fa fa-step-forward" aria-hidden="true"></i><i onClick={this.pause.bind(this)} ref='pauseandplay' className="fa fa-pause" aria-hidden="true"></i></div>
+        <div className={style.icons}><i className="fa fa-heart" aria-hidden="true"></i><i onClick={this.nextSong.bind(this)} className="fa fa-step-forward" aria-hidden="true"></i><i onClick={this.pause.bind(this)} ref='pauseandplay' className={AppState.pauseandplay} aria-hidden="true"></i></div>
         <audio ref='audio' src={musicData[AppState.playing].url} autoPlay="autoplay">
         </audio>
         <img src={musicData[AppState.playing].cover} height="250" width="250" />

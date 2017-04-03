@@ -23,7 +23,6 @@ import FlatButton from 'material-ui/FlatButton';
 
 
 export default @observer class Navbar extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -70,17 +69,17 @@ export default @observer class Navbar extends React.Component {
       />,
 		];
 
-		return (<div><AppBar title={AppState.appbar} style={{'position':'fixed','height':'70px','top':'0','background':'#EA6F5A'}}
-    iconClassNameRight="muidocs-icon-navigation-expand-more" onLeftIconButtonTouchTap={this.handleToggle}
+		return (<div><AppBar title={AppState.appbar} titleStyle={{'fontSize':'1rem','lineHeight':'50px'}} style={{'position':'fixed','top':'0','height':'50px','background':'#ff6e40'}}
+    iconStyleLeft={{'height':'40px','width':'40px'}} onLeftIconButtonTouchTap={this.handleToggle}
   /> <Drawer
           docked={false}
-          width={200}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
-          swipeAreaWidth={null}
+          swipeAreaWidth={100}
 		width = {
 			0.75 * document.body.clientWidth
 		}
+		style={{'overflow-x':'hidden'}}
         >
         <div className={style.sidebar}>
 		<div className={style.personalinfo}>

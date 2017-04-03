@@ -2,10 +2,8 @@ import React from "react";
 import style from "./css/container.scss";
 import {
 	documentData
-} from './data.js';
+} from './../data/data.js';
 import {
-	BrowserRouter as Router,
-	Route,
 	Link
 } from 'react-router-dom';
 import {
@@ -23,7 +21,7 @@ export default @observer class Articlelist extends React.Component {
 	componentWillMount() {
 		if (this.props.match.params.cat) {
 			AppState.changeAppBar('所有文章 > ' + this.props.match.params.cat)
-		}else{
+		} else {
 			AppState.changeAppBar('Sangle')
 		}
 	}
