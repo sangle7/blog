@@ -31,7 +31,10 @@ export const AppState = observable({
 	timelinewidth: 0,
 	articleNumber: 0,
 	pauseandplay: 'fa fa-pause',
-	articlecache: {}
+	articlecache: {},
+	likenumber: 0,
+	likeheart: 'fa fa-heart-o',
+	likeflag: 0
 });
 
 AppState.init = function() {
@@ -40,6 +43,8 @@ AppState.init = function() {
 	this.mdcontent = null;
 	this.articleNumber = 0;
 	this.musicNumber = 0;
+	this.likeheart = 'fa fa-heart-o';
+	this.likeflag = 0;
 }
 AppState.changePlayAndPause = function() {
 	this.pauseandplay = this.pauseandplay == 'fa fa-play' ? 'fa fa-pause' : 'fa fa-play';
@@ -64,6 +69,7 @@ AppState.initArticle = function(a) {
 	})
 	if (this.article == null || this.article.name !== _xxx[0].name) {
 		this.article = _xxx[0];
+		this.getLikeNumber(_xxx[0].name)
 		this.changeAriticle("../" + a + '.md')
 	}
 }
@@ -138,4 +144,33 @@ AppState.musicPlaying = function(audio2) {
 		this.playtime = '-0' + min + ':' + sec;;
 		this.timelinewidth = percent * 430 + 'px';
 	}, 1000)
+}
+AppState.handleArticleLike = function(a) {
+	let url = 'https://sangle.000webhostapp.com/handlelike.php?articlename=' + a;
+	this.likenumber++;
+	this.likeheart = 'fa fa-heart';
+	this.likeflag = 1;
+	this.AJAX(url)
+		.then((text) => { // 如果AJAX成功，获得响应内容
+
+		}).catch((status) => { // 如果AJAX失败，获得响应代码
+			console.log('ERROR: ' + status)
+		});
+}
+AppState.getLikeNumber = function(name) {
+	let url = 'https://sangle.000webhostapp.com/getLikeNumber.php?articlename=' + name;
+	this.AJAX(url)
+		.then((text) => { // 如果AJAX成功，获得响应内容
+			let arr = text.split("<br>");
+			this.likenumber = arr[0];
+			if (arr[1] != 0) {
+				this.likeheart = 'fa fa-heart';
+				this.likeflag = 1;
+			} else {
+				this.likeheart = 'fa fa-heart-o';
+				this.likeflag = 0;
+			}
+		}).catch((status) => { // 如果AJAX失败，获得响应代码
+			console.log('ERROR: ' + status)
+		});
 }

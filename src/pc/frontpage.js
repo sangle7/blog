@@ -24,14 +24,14 @@ export default class Frontpage extends React.Component {
 			<div className={style.title}>
 		<ul className={style.ul}>
 		<li className={style.logo}><Link to='/'>Sangle</Link></li>
-		<li><Link to='/articles/编程'>编程</Link></li>
-		<li><Link to='/articles/生活'>生活</Link></li>
-		<li><Link to='/music'>音乐</Link></li>
-		<li><Link to='/tools'>工具</Link></li>
-		<li><Link to='/aboutme'>关于我</Link></li>
+		<Link to='/articles/编程'><li>编程</li></Link>
+		<Link to='/articles/生活'><li>生活</li></Link>
+		<Link to='/music'><li>音乐</li></Link>
+		<Link to='/tools'><li>工具</li></Link>
+		<Link to='/aboutme'><li>关于我</li></Link>
 			</ul>
-		</div><div className={style.mainbody}><Sidebar />
-
+		</div><div className={style.mainbody}>
+		<Sidebar />
 		<div className={styleB.container}>
 		<Switch>
 		<Route exact path='/' component={Articlelist}/>

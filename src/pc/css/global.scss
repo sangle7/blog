@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family:sans-serif;
+    outline: 0;
 }
 
 html,
@@ -16,6 +17,6 @@ a {
 }
 
 ::selection {
-    background:#EA6F5A; 
+    background:#FF5252; 
     color:white;
 }

@@ -1,11 +1,11 @@
 .title {
-    height: 50px;
+    height: 64px;
     width: 100%;
-    background-color: #EA6F5A;
+    background-color: #FF5252;
     color: white;
     position: fixed;
     z-index: 999;
-    box-shadow: 0 2px 22px grey;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
     .ul{
     	height: 50px;
     	position: absolute;
@@ -18,21 +18,22 @@
     		}
     		&:hover{
     			cursor:pointer;
-    			background-color:#EA6F5A;
+    			background-color:#FF5252;;
     		}
     	}
-       	li{
-    		list-style: none;
-    		line-height: 50px;
-    		font-size: 20px;
-    		float: left;
-    		text-align: center;padding-left: 10px;padding-right: 10px;
-            a{
+        a{
                  color: white;
             }
+       	li{
+    		list-style: none;
+    		line-height: 64px;
+    		font-size: 20px;
+    		float: left;
+            color: white;
+    		text-align: center;padding-left: 10px;padding-right: 10px;
     		&:hover{
     			cursor:pointer;
-    			background-color:#EC6149;
+    			background-color:#FF1744;
     		}
     	}
     }

@@ -2,11 +2,11 @@
     height: 300px;
     position: fixed;
     width: 50%;
-    background-color: #EA6F5A;
+    background-color: #FF5252;
     z-index: 999;
     margin-left: 10%;
     margin-top: 5%;
-    border: 1px solid #C73E3A;
+    border: 1px solid #FF5252;
     box-sizing: border-box;
     label {
         display: block;
@@ -17,7 +17,7 @@
         input {
             display: block;
             border: 1px solid white;
-            color: #C73E3A;
+            color: #FF5252;
             height: 20px;
             font-size: 15px;
             line-height: 20px;
@@ -40,7 +40,7 @@
         font-size: 30px;
         font-weight: 100;
         position: absolute;
-        border: 1px solid #C73E3A;
+        border: 1px solid #FF5252;
         box-sizing: border-box;
     }
 }
@@ -53,7 +53,7 @@
     position: absolute;
     height: 25px;
     background: white;
-    color: #EA6F5A;
+    color: #FF5252;
     border: 0;
     font-weight: 400;
 }

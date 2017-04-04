@@ -27,6 +27,11 @@ export default @observer class Article extends React.Component {
 		hljs.initHighlighting.called = false;
 		AppState.initArticle(nextProps.match.params.id)
 	}
+	handleLike() {
+		if (!AppState.likeflag) {
+			AppState.handleArticleLike(AppState.article.name)
+		}
+	}
 	handlePrint() {
 		let newstr = this.refs.realdocument.innerHTML;
 		let oldstr = document.body.innerHTML;
@@ -48,6 +53,7 @@ export default @observer class Article extends React.Component {
 		<h1>{AppState.article.name}</h1>
 				</section><section className={style.documentsec}><div className='markdown-body' dangerouslySetInnerHTML={{__html: AppState.articlecontent}}></div>
 				</section>
+		<div className={style.likebutton} onClick={this.handleLike.bind(this)}><i className={AppState.likeheart} aria-hidden="true"><i className={style.touchpressed}></i></i> <span className={style.floatright}>{AppState.likenumber}</span></div>
 				</div>
 				<footer onClick={this.handlePrint.bind(this)} className={style.footer}>CLICK HERE TO <strong>PRINT</strong></footer>
 			</div>)
