@@ -1,4 +1,4 @@
-## click [here](https://sangle.000webhostapp.com) to visit my blog!
+## click [here](http://sangle7.com) to visit my blog!
 
 or
 
