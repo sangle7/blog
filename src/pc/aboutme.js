@@ -10,7 +10,8 @@ import hljs from 'highlight.js'
 
 export default @observer class Aboutme extends React.Component {
 	componentWillMount() {
-		AppState.changeAriticle("../articles/aboutme.md")
+		AppState.changeAriticle("../articles/aboutme.md");
+		document.title = "Sangle的博客-关于我";
 	}
 	componentWillUnmount() {
 		hljs.initHighlighting.called = false;

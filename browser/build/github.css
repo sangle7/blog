@@ -141,3 +141,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .fa-step-forward:before {
   content: "\f051";
 }
+.fa-angle-up:before {
+  content: "\f106";
+}
+.fa-caret-up:before {
+  content: "\f0d8";
+}
+.fa-angle-double-up:before {
+  content: "\f102";
+}

@@ -33,10 +33,13 @@ export default @observer class Articlelist extends React.Component {
 		})
 		if (cat[0]) {
 			categoryrender = '> ' + cat[0];
+			document.title = "Sangle的博客-" + cat[0];
 			document_ = documentData.filter((elem) => {
 				if (elem.category == cat[0])
 					return elem
 			});
+		} else {
+			document.title = "Sangle的博客"
 		}
 
 		let documentrender = document_ || documentData;

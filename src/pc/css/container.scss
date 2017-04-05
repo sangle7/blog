@@ -146,6 +146,19 @@
     }
 }
 
+.FloatingButton{
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    background-color: #FF5252;
+    position: fixed;
+    right: 15%;
+    bottom: 50px;
+    color: white;
+    line-height: 56px;
+    font-size: 22px;
+}
+
 :global(.markdown-body) {
     width: 100%
 }

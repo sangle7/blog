@@ -12,12 +12,45 @@ import {
 import Sidebar from "./sidebar.js";
 import styleB from "./css/container.scss";
 import Articlelist from "./articlelist.js";
-import Article from './article.js'
+import Article from './article.js';
 import Musicplayer from './Musicplayer.js'
 import MarkdownEditor from './markdownEditor.js';
 import Aboutme from "./aboutme.js"
 
 export default class Frontpage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			display: 'none'
+		}
+	}
+	componentDidMount() {
+		window.onscroll = () => {
+			if (window.scrollY > document.body.clientHeight) {
+				this.setState({
+					display: 'block'
+				})
+			} else {
+				this.setState({
+					display: 'none'
+				})
+			}
+		}
+	}
+	backtotop() {
+		var timer = null;
+		cancelAnimationFrame(timer);
+		timer = requestAnimationFrame(function fn() {
+			var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+			if (oTop > 0) {
+				document.body.scrollTop = document.documentElement.scrollTop = oTop - 100;
+				timer = requestAnimationFrame(fn);
+			} else {
+				cancelAnimationFrame(timer);
+			}
+		})
+	}
+
 	render() {
 		return (<Router>
 			<div>
@@ -45,6 +78,7 @@ export default class Frontpage extends React.Component {
 		<Route path="/aboutme" component={Aboutme}/>
 		</Switch>
 		</div>
+		<div onClick={this.backtotop.bind(this)} style={{'display':this.state.display}}className={styleB.FloatingButton}><i className="fa fa-angle-double-up" aria-hidden="true"></i></div>
 		</div>
 		</div>
 		</Router>)

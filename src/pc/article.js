@@ -18,6 +18,7 @@ export default @observer class Article extends React.Component {
 	}
 	componentWillMount() {
 		AppState.initArticle(this.props.match.params.id)
+		document.title = "Sangle的博客-" + this.props.match.params.id;
 	}
 	componentWillUnmount() {
 		hljs.initHighlighting.called = false;

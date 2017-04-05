@@ -2,7 +2,7 @@ import React from "react";
 import style from "./css/musicplayer.scss";
 import {
 	musicData
-}from './../data/data.js';
+} from './../data/data.js';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -23,6 +23,9 @@ import TextField from 'material-ui/TextField';
 
 
 export default @observer class Musicplayer extends React.Component {
+	componentWillMount() {
+		AppState.changeAppBar('音乐')
+	}
 	componentDidMount() {
 		this.interval = AppState.musicPlaying(this.refs.audio)
 	}
@@ -33,7 +36,6 @@ export default @observer class Musicplayer extends React.Component {
 
 	nextSong() {
 		AppState.nextSong();
-		this.refs.pauseandplay.className = 'fa fa-pause'
 	}
 
 	playFromHere(event) {

@@ -9,7 +9,7 @@
 .header {
     width: 100%;
     padding: 10px;
-    a{color:#EA6F5A;
+    a{color:#FF5252;
     }
 }
 
@@ -62,9 +62,6 @@
     border-bottom: 1px solid #E9E9E9;
     padding: 15px;
     box-sizing: border-box;
-    &:hover {
-        background-color: #EBEBEB;
-    }
 }
 
 .date {
@@ -100,6 +97,44 @@
         float: right;
     }
 }
+
+.likebutton {
+    height: 36px;    
+        min-width: 80px;
+    background-color: #FF5252;
+    border-radius: 2px;
+    margin: 10px 30px;
+    float: right;
+    line-height: 36px;
+    font-size: 16px;
+    text-align: left;
+    color: white;
+    padding: 0 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+    i {
+        color: white;
+        transition: .3s;
+        margin-right: 16px;
+        .touchpressed {
+            height: 16px;
+            display: inline-block;
+            width: 16px;
+            transition: .2s;
+            border-radius: 50%;
+            position: absolute;
+            margin-left: -16px;
+        }
+    }
+    &:active {
+        .touchpressed {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform-origin: center center;
+            transform: scale(2)
+        }
+    }
+}
+
 
 :global(.markdown-body) {
     width: 100%

@@ -143,6 +143,9 @@ AppState.musicPlaying = function(audio2) {
 		}
 		this.playtime = '-0' + min + ':' + sec;;
 		this.timelinewidth = percent * 430 + 'px';
+		if (audio2.ended) {
+			this.pauseandplay = 'fa fa-play';
+		}
 	}, 1000)
 }
 AppState.handleArticleLike = function(a) {

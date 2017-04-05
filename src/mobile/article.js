@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./css/container.scss";
 import {
-	BrowserRouter as Router,
-	Route,
 	Link
 } from 'react-router-dom';
 import hljs from 'highlight.js';
@@ -17,15 +15,23 @@ import {
 export default @observer class Article extends React.Component {
 	constructor(props) {
 		super(props);
-
 	}
 	componentWillMount() {
-		AppState.initArticle(this.props.match.params.name, this.props.match.params.id)
+		AppState.initArticle(this.props.match.params.id)
 		AppState.changeAppBar('所有文章 > ' + AppState.article.category)
 	}
 	componentWillUnmount() {
 		hljs.initHighlighting.called = false;
 		AppState.init();
+	}
+	componentWillUpdate(nextProps) {
+		hljs.initHighlighting.called = false;
+		AppState.initArticle(nextProps.match.params.id)
+	}
+	handleLike() {
+		if (!AppState.likeflag) {
+			AppState.handleArticleLike(AppState.article.name)
+		}
 	}
 	handlePrint() {
 		let newstr = this.refs.realdocument.innerHTML;
@@ -47,6 +53,7 @@ export default @observer class Article extends React.Component {
 		<h1>{AppState.article.name}</h1>
 				</section><section className={style.documentsec}><div className='markdown-body' dangerouslySetInnerHTML={{__html: AppState.articlecontent}}></div>
 				</section>
+				<div className={style.likebutton} onClick={this.handleLike.bind(this)}><i className={AppState.likeheart} aria-hidden="true"><i className={style.touchpressed}></i></i> <span className={style.floatright}>{AppState.likenumber}</span></div>
 				</div>
 			</div>)
 	}

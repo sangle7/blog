@@ -5,7 +5,7 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import {
 	documentData
-}from './../data/data.js';
+} from './../data/data.js';
 
 
 marked.setOptions({
@@ -31,7 +31,11 @@ export const AppState = observable({
 	timelinewidth: 0,
 	articleNumber: 0,
 	appbar: 'Sangle',
-	pauseandplay: 'fa fa-pause'
+	pauseandplay: 'fa fa-pause',
+	articlecache: {},
+	likenumber: 0,
+	likeheart: 'fa fa-heart-o',
+	likeflag: 0
 });
 
 AppState.init = function() {
@@ -40,12 +44,14 @@ AppState.init = function() {
 	this.mdcontent = null;
 	this.articleNumber = 0;
 	this.musicNumber = 0;
-}
-AppState.showWechatImg = function() {
-	this.wechat = 'block';
+	this.likeheart = 'fa fa-heart-o';
+	this.likeflag = 0;
 }
 AppState.changePlayAndPause = function() {
 	this.pauseandplay = this.pauseandplay == 'fa fa-play' ? 'fa fa-pause' : 'fa fa-play';
+}
+AppState.showWechatImg = function() {
+	this.wechat = 'block';
 }
 AppState.hideWechatImg = function() {
 	this.wechat = 'none';
@@ -56,43 +62,33 @@ AppState.showMoreMusics = function() {
 AppState.showMoreArticles = function() {
 	this.articleNumber += 10;
 }
-AppState.initArticle = function(a, b) {
+AppState.initArticle = function(a) {
 	let _xxx = documentData.filter((elem) => {
-		if (elem.url == '/articles/' + a + '/' + b) {
+		if (elem.name == a) {
 			return elem;
 		}
 	})
-	this.article = _xxx[0];
-	this.changeAriticle("../" + _xxx[0].name + '.md')
+	if (this.article == null || this.article.name !== _xxx[0].name) {
+		this.article = _xxx[0];
+		this.getLikeNumber(_xxx[0].name)
+		this.changeAriticle("../" + a + '.md')
+	}
 }
 AppState.MDtoHTML = function(value) {
 	hljs.initHighlighting.called = false;
 	this.mdcontent = marked(value)
 }
 AppState.changeAriticle = function(aaa) {
-	this.AJAX(aaa)
-		.then((code) => {
-			this.articlecontent = marked(code)
-			hljs.initHighlighting();
-		})
-
-	function MDtoHTML(bbb) {
-		return new Promise((resolve, reject) => {
-			let req = new XMLHttpRequest();
-			let url = bbb;
-			req.open('get', url);
-			req.onload = function() {
-				if (req.status == 200) {
-					resolve(req.responseText)
-				} else {
-					reject(Error(req.statusText))
-				}
-			}
-			req.onError = function() {
-				reject(Error('error'))
-			}
-			req.send()
-		})
+	if (this.articlecache[aaa]) {
+		this.articlecontent = this.articlecache[aaa]
+		hljs.initHighlighting();
+	} else {
+		this.AJAX(aaa)
+			.then((code) => {
+				this.articlecontent = marked(code)
+				this.articlecache[aaa] = marked(code)
+				hljs.initHighlighting();
+			})
 	}
 }
 AppState.AJAX = function(url) {
@@ -148,8 +144,40 @@ AppState.musicPlaying = function(audio2) {
 		}
 		this.playtime = '-0' + min + ':' + sec;;
 		this.timelinewidth = percent * 300 + 'px';
+		if (audio2.ended) {
+			this.pauseandplay = 'fa fa-play';
+		}
 	}, 1000)
 }
 AppState.changeAppBar = function(value) {
 	this.appbar = value;
+}
+AppState.handleArticleLike = function(a) {
+	let url = 'https://sangle.000webhostapp.com/handlelike.php?articlename=' + a;
+	this.likenumber++;
+	this.likeheart = 'fa fa-heart';
+	this.likeflag = 1;
+	this.AJAX(url)
+		.then((text) => { // 如果AJAX成功，获得响应内容
+
+		}).catch((status) => { // 如果AJAX失败，获得响应代码
+			console.log('ERROR: ' + status)
+		});
+}
+AppState.getLikeNumber = function(name) {
+	let url = 'https://sangle.000webhostapp.com/getLikeNumber.php?articlename=' + name;
+	this.AJAX(url)
+		.then((text) => { // 如果AJAX成功，获得响应内容
+			let arr = text.split("<br>");
+			this.likenumber = arr[0];
+			if (arr[1] != 0) {
+				this.likeheart = 'fa fa-heart';
+				this.likeflag = 1;
+			} else {
+				this.likeheart = 'fa fa-heart-o';
+				this.likeflag = 0;
+			}
+		}).catch((status) => { // 如果AJAX失败，获得响应代码
+			console.log('ERROR: ' + status)
+		});
 }

@@ -19,6 +19,9 @@ import {
 
 
 export default @observer class Musicplayer extends React.Component {
+	componentWillMount() {
+		document.title = "Sangle的博客-音乐";
+	}
 	componentDidMount() {
 		this.interval = AppState.musicPlaying(this.refs.audio)
 	}

@@ -10,6 +10,7 @@ import hljs from 'highlight.js'
 
 export default @observer class Aboutme extends React.Component {
 	componentWillMount() {
+		AppState.changeAppBar('关于我')
 		AppState.changeAriticle("../articles/aboutme.md")
 	}
 	componentWillUnmount() {

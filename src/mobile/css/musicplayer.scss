@@ -8,9 +8,6 @@
     span {
         font-weight: 700;
         cursor: pointer;
-        &:hover {
-            color: #EA6F5A
-        }
     }
 }
 
@@ -80,7 +77,7 @@
     cursor: pointer;
     div {
         height: 100%;
-        background-color: #C73E3A;
+        background-color: #FF5252;
     }
 }
 
@@ -101,5 +98,5 @@
 }
 
 :global(.fa-heart) {
-    color: #C73E3A;
+    color: #FF5252;
 }
