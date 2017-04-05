@@ -85,7 +85,7 @@ export default @observer class Frontpage extends React.Component {
 
 		return (<Router>
 	<div>
-	<div><AppBar ondbclick={this.backtotop.bind(this)} title={AppState.appbar} titleStyle={{'fontSize':'1rem','lineHeight':'56px'}} style={{'position':'fixed','top':'0','height':'56px','background':'#FF5252'}}
+	<div><AppBar onDoubleClick={this.backtotop.bind(this)} title={AppState.appbar} titleStyle={{'fontSize':'1rem','lineHeight':'56px'}} style={{'position':'fixed','top':'0','height':'56px','background':'#FF5252'}}
     iconStyleLeft={{'height':'56px','width':'56px'}} onLeftIconButtonTouchTap={this.handleToggle}
   /> <Drawer
           docked={false}
