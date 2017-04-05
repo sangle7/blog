@@ -7,7 +7,8 @@
 
 **博客源码已上传至[github](https://github.com/sangle7/blog)**
 
+——2017/04/05 update——
 
-
-
+1. 新增点赞功能
+2. 优化前端路由
 
