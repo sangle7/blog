@@ -43,7 +43,7 @@ export default class Frontpage extends React.Component {
 		timer = requestAnimationFrame(function fn() {
 			var oTop = document.body.scrollTop || document.documentElement.scrollTop;
 			if (oTop > 0) {
-				document.body.scrollTop = document.documentElement.scrollTop = oTop - 100;
+				document.body.scrollTop = document.documentElement.scrollTop = oTop - 200;
 				timer = requestAnimationFrame(fn);
 			} else {
 				cancelAnimationFrame(timer);

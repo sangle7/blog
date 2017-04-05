@@ -45,6 +45,19 @@ export default @observer class Frontpage extends React.Component {
 	handleOut() {
 		AppState.hideWechatImg();
 	}
+	backtotop() {
+		var timer = null;
+		cancelAnimationFrame(timer);
+		timer = requestAnimationFrame(function fn() {
+			var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+			if (oTop > 0) {
+				document.body.scrollTop = document.documentElement.scrollTop = oTop - 200;
+				timer = requestAnimationFrame(fn);
+			} else {
+				cancelAnimationFrame(timer);
+			}
+		})
+	}
 
 	handleToggle = () => this.setState({
 		open: !this.state.open
@@ -72,7 +85,7 @@ export default @observer class Frontpage extends React.Component {
 
 		return (<Router>
 	<div>
-	<div><AppBar title={AppState.appbar} titleStyle={{'fontSize':'1rem','lineHeight':'56px'}} style={{'position':'fixed','top':'0','height':'56px','background':'#FF5252'}}
+	<div><AppBar ondbclick={this.backtotop.bind(this)} title={AppState.appbar} titleStyle={{'fontSize':'1rem','lineHeight':'56px'}} style={{'position':'fixed','top':'0','height':'56px','background':'#FF5252'}}
     iconStyleLeft={{'height':'56px','width':'56px'}} onLeftIconButtonTouchTap={this.handleToggle}
   /> <Drawer
           docked={false}
