@@ -7,7 +7,6 @@ import {
 	documentData
 } from './../data/data.js';
 
-
 marked.setOptions({
 	renderer: new marked.Renderer(),
 	gfm: true,
@@ -18,6 +17,7 @@ marked.setOptions({
 	smartLists: true,
 	smartypants: false
 })
+
 export const AppState = observable({
 	musicNumber: 0,
 	wechat: "none",
@@ -85,7 +85,7 @@ AppState.changeAriticle = function(aaa) {
 		this.AJAX(aaa)
 			.then((code) => {
 				this.articlecontent = marked(code)
-				this.articlecache[aaa] = marked(code)
+				this.articlecache[aaa] = this.articlecontent
 				hljs.initHighlighting();
 			})
 	}
