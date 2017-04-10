@@ -12,7 +12,7 @@ var TEST_DATABASE = 'musics';
 var TEST_TABLE = 'musicrecommand';
 
 // app.use(useragent.express());
-app.use(express.static(path.join(__dirname, '..', 'buildmobile')))
+app.use(express.static(path.join(__dirname, '..', 'browser')))
 
 app.all('*', function(req, res, next) {
 	res.header("Cache-control", "max-age");
@@ -24,15 +24,6 @@ app.all('*', function(req, res, next) {
 	next();
 });
 
-
-app.get('/', function(req, res) {
-	console.log(req.headers['user-agent'])
-	if (/Android/.test(req.useragent)) {
-
-	} else {
-		app.use(express.static(path.join(__dirname, '..', 'build')))
-	}
-})
 app.get('/home', function(req, res) {
 	res.send('发送成功!');
 	var client = mysql.createConnection({

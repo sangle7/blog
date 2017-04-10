@@ -7,7 +7,8 @@ module.exports = {
 	entry: "./src/pc/main.jsx",
 	output: {
 		path: path.join(__dirname, "browser/build"),
-		filename: 'bundle.js',
+		filename: '[name].js',
+		chunkFilename: '[name]-[id].js',
 		publicPath: "/build/",
 	},
 	devServer: {

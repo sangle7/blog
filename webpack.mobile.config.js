@@ -18,7 +18,7 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.jsx?$/, // 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
-			loader: 'babel-loader' // 加载模块 "babel" 是 "babel-loader" 的缩写
+			loader: 'babel-loader?name=[name]' // 加载模块 "babel" 是 "babel-loader" 的缩写
 		}, {
 			test: /\.css$/,
 			loader: 'style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]'
