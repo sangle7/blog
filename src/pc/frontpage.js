@@ -37,6 +37,9 @@ export default class Frontpage extends React.Component {
 			}
 		}
 	}
+	backToTopQuick() {
+		document.body.scrollTop = 0;
+	}
 	backtotop() {
 		var timer = null;
 		cancelAnimationFrame(timer);
@@ -56,12 +59,12 @@ export default class Frontpage extends React.Component {
 			<div>
 			<div className={style.title}>
 		<ul className={style.ul}>
-		<li className={style.logo}><Link to='/'>Sangle</Link></li>
-		<Link to='/articles/编程'><li>编程</li></Link>
-		<Link to='/articles/生活'><li>生活</li></Link>
-		<Link to='/music'><li>音乐</li></Link>
-		<Link to='/tools'><li>工具</li></Link>
-		<Link to='/aboutme'><li>关于我</li></Link>
+		<li className={style.logo}><Link to='/' onClick={this.backToTopQuick.bind(this)}>Sangle</Link></li>
+		<Link to='/articles/编程' onClick={this.backToTopQuick.bind(this)}><li>编程</li></Link>
+		<Link to='/articles/生活' onClick={this.backToTopQuick.bind(this)}><li>生活</li></Link>
+		<Link to='/music' onClick={this.backToTopQuick.bind(this)}><li>音乐</li></Link>
+		<Link to='/tools' onClick={this.backToTopQuick.bind(this)}><li>工具</li></Link>
+		<Link to='/aboutme' onClick={this.backToTopQuick.bind(this)}><li>关于我</li></Link>
 			</ul>
 		</div><div className={style.mainbody}>
 		<Sidebar />

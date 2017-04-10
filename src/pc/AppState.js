@@ -62,14 +62,17 @@ AppState.showMoreArticles = function() {
 	this.articleNumber += 10;
 }
 AppState.initArticle = function(a) {
-	let _xxx = documentData.filter((elem) => {
+	let number;
+	let _xxx = documentData.filter((elem, index) => {
 		if (elem.name == a) {
-			return elem;
+			number = index;
 		}
 	})
-	if (this.article == null || this.article.name !== _xxx[0].name) {
-		this.article = _xxx[0];
-		this.getLikeNumber(_xxx[0].name)
+	if (this.article == null || this.article.name !== documentData[number].name) {
+		this.article = documentData[number];
+		this.nextArticle = documentData[number + 1] || documentData[0];
+		this.previousArticle = documentData[number - 1] || documentData[documentData.length - 1];
+		this.getLikeNumber(documentData[number].name)
 		this.changeAriticle("../" + a + '.md')
 	}
 }

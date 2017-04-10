@@ -20,9 +20,12 @@ export default @observer class Sidebar extends React.Component {
 	handleOut() {
 		AppState.hideWechatImg();
 	}
+	backToTopQuick() {
+		document.body.scrollTop = 0;
+	}
 	render() {
 		let recommand = recommendData.map((elem, index) => {
-			return <li key={index}><Link to={elem.url}>{elem.name}</Link></li>
+			return <li key={index} onClick={this.backToTopQuick.bind(this)}><Link to={elem.url}>{elem.name}</Link></li>
 		})
 
 

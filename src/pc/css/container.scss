@@ -163,6 +163,19 @@
         cursor: pointer;
     }
 }
+.abovefooter{
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 30px;
+    clear: both;
+    box-sizing: border-box;
+    a {
+        color:#FF5252;
+        &:visited{
+            color:#FF5252;
+        }
+    }
+}
 
 :global(.markdown-body) {
     width: 100%

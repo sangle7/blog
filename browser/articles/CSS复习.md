@@ -153,19 +153,29 @@ CSS columns是很新的标准，所以你需要使用前缀，并且它不被[IE
 
 默认值：row，主轴为水平方向，起点在左端。
 
-![flex-direction-row](http://pic2.zhimg.com/v2-ae8828b8b022dc6f1b28d5b4f7082e91_b.png)
+![flex-direction-row](http://onvaoy58z.bkt.clouddn.com/css1.png)
+
+
 
 row-reverse：主轴为水平方向，起点在右端
 
-![img](http://pic3.zhimg.com/v2-215c8626ac95e97834eddb552cfa148a_b.png)column：主轴为垂直方向，起点在上沿
+![img](http://onvaoy58z.bkt.clouddn.com/css2.png)
 
-![img](http://pic1.zhimg.com/v2-33efe75d166a47588e0174d0830eb020_b.png)
+
+
+column：主轴为垂直方向，起点在上沿
+
+![img](http://onvaoy58z.bkt.clouddn.com/css3.png)
+
+
 
 
 
 column-reverse：主轴为垂直方向，起点在下沿
 
-![img](http://pic2.zhimg.com/v2-344757e0fb7eee11e75b127b8485e679_b.png)
+![img](http://onvaoy58z.bkt.clouddn.com/css4.png)
+
+
 
 **2. flex-wrap: 决定容器内项目是否可换行**
 
@@ -180,15 +190,21 @@ column-reverse：主轴为垂直方向，起点在下沿
 
 默认值：nowrap 不换行，即当主轴尺寸固定时，当空间不足时，项目尺寸会随之调整而并不会挤到下一行。
 
-![img](http://pic4.zhimg.com/v2-a590927ad6d83de8840d52a0cf2f0df3_b.png)
+![img](http://onvaoy58z.bkt.clouddn.com/css5.png)
+
+
 
 wrap：项目主轴总尺寸超出容器时换行，第一行在上方
 
-![img](http://pic2.zhimg.com/v2-426949b061e8179aab00cacda8168651_b.png)
+![img](http://onvaoy58z.bkt.clouddn.com/css5.png)
+
+
 
 wrap-reverse：换行，第一行在下方
 
-![img](http://pic2.zhimg.com/v2-91c53ebf744814e1ab60267643866439_b.png)
+![img](http://onvaoy58z.bkt.clouddn.com/css6.png)
+
+
 
 **3. flex-flow: flex-direction 和 flex-wrap 的简写形式**
 
@@ -212,15 +228,27 @@ wrap-reverse：换行，第一行在下方
 
 默认值: flex-start 左对齐
 
-![img](http://pic1.zhimg.com/v2-1bafab80044a7ab2a6198d5937172eb0_b.png)flex-end：右对齐
+![img](http://onvaoy58z.bkt.clouddn.com/css8.png)
 
-![img](http://pic3.zhimg.com/v2-8b163809a4c944486a127a7c22eee7b2_b.png)center：居中
+flex-end：右对齐
 
-![img](http://pic4.zhimg.com/v2-dea82c75d35f532d35a52d1f9c1c762b_b.png)space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。
+![img](http://onvaoy58z.bkt.clouddn.com/css9.png)
 
-![img](http://pic1.zhimg.com/v2-ea4061e0f64dd8d7a1fcb5b0ad6f96a8_b.png)space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。
 
-![img](http://pic1.zhimg.com/v2-42a358111a221ff52768bdd55238eb0c_b.png)
+
+center：居中
+
+![img](http://onvaoy58z.bkt.clouddn.com/css10.png)
+
+space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。
+
+![img](http://onvaoy58z.bkt.clouddn.com/css11.png)
+
+space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。
+
+![img](http://onvaoy58z.bkt.clouddn.com/css12.png)
+
+
 
 **5. align-items: 定义了项目在交叉轴上的对齐方式**
 
@@ -234,23 +262,33 @@ wrap-reverse：换行，第一行在下方
 
 默认值为 stretch 即如果项目未设置高度或者设为 auto，将占满整个容器的高度。
 
-![img](http://pic2.zhimg.com/v2-0cced8789b0d73edf0844aaa3a08926d_b.png)假设容器高度设置为 100px，而项目都没有设置高度的情况下，则项目的高度也为 100px。
+![img](http://onvaoy58z.bkt.clouddn.com/css13.png)
+
+假设容器高度设置为 100px，而项目都没有设置高度的情况下，则项目的高度也为 100px。
 
 flex-start：交叉轴的起点对齐
 
-![img](http://pic3.zhimg.com/v2-26d9e85039beedd78e412459bd436e8a_b.png)
+![img](http://onvaoy58z.bkt.clouddn.com/css14.png)
+
+
 
 假设容器高度设置为 100px，而项目分别为 20px, 40px, 60px, 80px, 100px, 则如上图显示。
 
 flex-end：交叉轴的终点对齐
 
-![img](http://pic4.zhimg.com/v2-8b65ee47605a48ad2947b9ef4e4b01b3_b.png)
+![img](http://onvaoy58z.bkt.clouddn.com/css15.png)
+
+
 
 center：交叉轴的中点对齐
 
-![img](http://pic3.zhimg.com/v2-7bb9d8385273d8ad469605480f40f8f2_b.png)baseline: 项目的第一行文字的基线对齐
+![img](http://onvaoy58z.bkt.clouddn.com/css16.png)
 
-![img](http://pic3.zhimg.com/v2-abf7ac4776302ad078986f7cd0dddaee_b.png)
+baseline: 项目的第一行文字的基线对齐
+
+![img](http://onvaoy58z.bkt.clouddn.com/css17.png)
+
+
 
 以文字的底部为主，仔细看图可以理解。
 
@@ -277,13 +315,29 @@ center：交叉轴的中点对齐
 
 flex-start：轴线全部在交叉轴上的起点对齐
 
-![img](http://pic2.zhimg.com/v2-61d92d7dc68e3d7d415a16830050fd11_b.png)flex-end：轴线全部在交叉轴上的终点对齐
+![img](http://onvaoy58z.bkt.clouddn.com/css18.png)
 
-![img](http://pic2.zhimg.com/v2-0a0a7f10c50596aade787ae11b7b0a75_b.png)center：轴线全部在交叉轴上的中间对齐![img](http://pic1.zhimg.com/v2-dcf53fce8dbcde7da9c677dd1a033860_b.png)space-between：轴线两端对齐，之间的间隔相等，即剩余空间等分成间隙。
 
-![img](http://pic2.zhimg.com/v2-d80940f71e1e08d45d3d6df4c5401d0d_b.png)space-around：每个轴线两侧的间隔相等，所以轴线之间的间隔比轴线与边缘的间隔大一倍。
 
-![img](http://pic2.zhimg.com/v2-7c4d5c01f3851a3cec7f8487c6edb21d_b.png)到这里关于容器上的所有属性都讲完了，接下来就来讲讲关于在 flex item 上的属性。
+flex-end：轴线全部在交叉轴上的终点对齐
+
+![img](http://onvaoy58z.bkt.clouddn.com/css19.png)
+
+center：轴线全部在交叉轴上的中间对齐
+
+![img](http://onvaoy58z.bkt.clouddn.com/css20.png)
+
+
+
+space-between：轴线两端对齐，之间的间隔相等，即剩余空间等分成间隙。
+
+![img](http://onvaoy58z.bkt.clouddn.com/css21.png)
+
+space-around：每个轴线两侧的间隔相等，所以轴线之间的间隔比轴线与边缘的间隔大一倍。
+
+![img](http://onvaoy58z.bkt.clouddn.com/css22.png)
+
+到这里关于容器上的所有属性都讲完了，接下来就来讲讲关于在 flex item 上的属性。
 
 ## Flex 项目属性：
 
@@ -304,7 +358,9 @@ flex-start：轴线全部在交叉轴上的起点对齐
 }
 ```
 
-![img](http://pic3.zhimg.com/v2-d606874ac9c496b3a0e46573c85e4376_b.png)在 HTML 结构中，虽然 -2，-1 的 item 排在后面，但是由于分别设置了 order，使之能够排到最前面。
+![img](http://onvaoy58z.bkt.clouddn.com/css23.png)
+
+在 HTML 结构中，虽然 -2，-1 的 item 排在后面，但是由于分别设置了 order，使之能够排到最前面。
 
 **2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间**
 
@@ -333,7 +389,9 @@ flex-start：轴线全部在交叉轴上的起点对齐
 
 默认值为 0，即如果存在剩余空间，也不放大
 
-![img](http://pic4.zhimg.com/v2-5f7898c1f51fa7274a2c0b4a9dfd88c3_b.png)当所有的项目都以 flex-basis 的值进行排列后，仍有剩余空间，那么这时候 flex-grow 就会发挥作用了。
+![img](http://onvaoy58z.bkt.clouddn.com/css24.png)
+
+当所有的项目都以 flex-basis 的值进行排列后，仍有剩余空间，那么这时候 flex-grow 就会发挥作用了。
 
 如果所有项目的 flex-grow 属性都为 1，则它们将等分剩余空间。(如果有的话)
 
@@ -352,7 +410,11 @@ flex-start：轴线全部在交叉轴上的起点对齐
 
 默认值: 1，即如果空间不足，该项目将缩小，负值对该属性无效。
 
-![img](http://pic4.zhimg.com/v2-383e97971a7fc8c4f84e6a85406dbcaf_b.png)这里可以看出，虽然每个项目都设置了宽度为 50px，但是由于自身容器宽度只有 200px，这时候每个项目会被同比例进行缩小，因为默认值为 1。
+![img](http://onvaoy58z.bkt.clouddn.com/css25.png)
+
+
+
+这里可以看出，虽然每个项目都设置了宽度为 50px，但是由于自身容器宽度只有 200px，这时候每个项目会被同比例进行缩小，因为默认值为 1。
 
 同理可得：
 
