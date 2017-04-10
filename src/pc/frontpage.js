@@ -4,11 +4,9 @@ import style from './css/navbar.scss';
 import {
 	BrowserRouter as Router,
 	Route,
-	Link
-} from 'react-router-dom';
-import {
+	Link,
 	Switch
-} from 'react-router';
+} from 'react-router-dom';
 import Sidebar from "./sidebar.js";
 import styleB from "./css/container.scss";
 import Articlelist from "./articlelist.js";
@@ -16,6 +14,8 @@ import Article from './article.js';
 import Musicplayer from './Musicplayer.js'
 import MarkdownEditor from './markdownEditor.js';
 import Aboutme from "./aboutme.js"
+
+
 
 export default class Frontpage extends React.Component {
 	constructor(props) {
@@ -54,6 +54,7 @@ export default class Frontpage extends React.Component {
 		})
 	}
 
+
 	render() {
 		return (<Router>
 			<div>
@@ -71,7 +72,6 @@ export default class Frontpage extends React.Component {
 		<div className={styleB.container}>
 		<Switch>
 		<Route exact path='/' component={Articlelist}/>
-		<Route path='/pc' component={Articlelist}/>
 		<Route exact path="/articles/编程" component={Articlelist}/>
 		<Route exact path="/articles/生活" component={Articlelist}/>
 		<Route path="/articles/编程/:id" component={Article}/>

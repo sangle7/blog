@@ -27,6 +27,11 @@ export let documentData = [{
 	date: '2017-04-04',
 	category: '编程'
 }, {
+	name: '解决你的框架选择恐惧症',
+	url: '/articles/编程/解决你的框架选择恐惧症',
+	date: '2017-04-10',
+	category: '编程'
+}, {
 	name: '写在马德里德比后',
 	url: '/articles/生活/写在马德里德比后',
 	date: '2017-04-09',
