@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "id1242871_sangle";
-$password = "362101";
-$database = "id1242871_musiclist";
+$username = "****ID";
+$password = "****PW";
+$database = "****DB";
 parse_str($_SERVER['QUERY_STRING'], $get);
 
 header("Access-Control-Allow-Origin: *");
