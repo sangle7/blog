@@ -82,14 +82,16 @@ AppState.MDtoHTML = function(value) {
 }
 AppState.changeAriticle = function(aaa) {
 	if (this.articlecache[aaa]) {
-		this.articlecontent = this.articlecache[aaa]
+		this.articlecontent = this.articlecache[aaa];
 		hljs.initHighlighting();
+		hljs.initHighlighting.called = false;
 	} else {
 		this.AJAX(aaa)
 			.then((code) => {
 				this.articlecontent = marked(code)
 				this.articlecache[aaa] = this.articlecontent
 				hljs.initHighlighting();
+				hljs.initHighlighting.called = false;
 			})
 	}
 }
