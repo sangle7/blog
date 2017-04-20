@@ -7,6 +7,7 @@ import {
 	documentData
 } from './../data/data.js';
 
+let renderer = new marked.Renderer();
 marked.setOptions({
 	renderer: new marked.Renderer(),
 	gfm: true,
@@ -17,6 +18,9 @@ marked.setOptions({
 	smartLists: true,
 	smartypants: false
 })
+renderer.heading = function(text, level) {
+	return '<h' + level + ' class="header-TOC" id="' + text + '">' + text + '</h' + level + '>';
+}
 
 export const AppState = observable({
 	musicNumber: 0,
@@ -34,7 +38,13 @@ export const AppState = observable({
 	articlecache: {},
 	likenumber: 0,
 	likeheart: 'fa fa-heart-o',
-	likeflag: 0
+	likeflag: 0,
+	TOCinnerHTML: '',
+	TOC: false,
+	TOCcontroller: 'fa fa-angle-left',
+	mainbodyTransform: 'translateX(0)',
+	TOCTransfrom: 'translateX(-220px)',
+	TOCCTransfrom: 'translateX(0)',
 });
 
 AppState.init = function() {
@@ -45,6 +55,8 @@ AppState.init = function() {
 	this.musicNumber = 0;
 	this.likeheart = 'fa fa-heart-o';
 	this.likeflag = 0;
+	this.TOCinnerHTML = '';
+	this.TOCcontroller = 'fa fa-angle-left';
 }
 AppState.changePlayAndPause = function() {
 	this.pauseandplay = this.pauseandplay == 'fa fa-play' ? 'fa fa-pause' : 'fa fa-play';
@@ -61,7 +73,15 @@ AppState.showMoreMusics = function() {
 AppState.showMoreArticles = function() {
 	this.articleNumber += 10;
 }
+AppState.Uninit = function() {
+	this.mainbodyTransform = 'translateX(0)'
+}
 AppState.initArticle = function(a) {
+	this.TOC = true;
+	this.mainbodyTransform = 'translateX(220px)'
+	this.TOCTransfrom = 'translateX(0)';
+	this.TOCCTransfrom = 'translateX(220px)';
+	this.TOCcontroller = 'fa fa-angle-left';
 	let number;
 	let _xxx = documentData.filter((elem, index) => {
 		if (elem.name == a) {
@@ -85,15 +105,43 @@ AppState.changeAriticle = function(aaa) {
 		this.articlecontent = this.articlecache[aaa];
 		hljs.initHighlighting();
 		hljs.initHighlighting.called = false;
+		setTimeout(this.initTOC, 200)
 	} else {
 		this.AJAX(aaa)
 			.then((code) => {
-				this.articlecontent = marked(code)
+				this.articlecontent = marked(code, {
+					renderer: renderer
+				});
+				this.initTOC();
 				this.articlecache[aaa] = this.articlecontent
 				hljs.initHighlighting();
 				hljs.initHighlighting.called = false;
 			})
 	}
+}
+AppState.showOrHideTOC = function() {
+	if (this.TOC) {
+		this.TOC = false;
+		this.mainbodyTransform = 'translateX(0)';
+		this.TOCTransfrom = 'translateX(-220px)';
+		this.TOCCTransfrom = 'translateX(0)';
+		this.TOCcontroller = 'fa fa-angle-right';
+	} else {
+		this.TOC = true;
+		this.mainbodyTransform = 'translateX(220px)';
+		this.TOCCTransfrom = 'translateX(220px)'
+		this.TOCTransfrom = 'translateX(0)';
+		this.TOCcontroller = 'fa fa-angle-left';
+	}
+}
+AppState.initTOC = function() {
+	var TOClist = document.getElementsByClassName('header-TOC')
+	var _str = '';
+	for (let i = 0; i < TOClist.length; i++) {
+		_str += '<a class=TOC-' + TOClist[i].tagName + ' href=#' + TOClist[i].id + '>' + TOClist[i].id + '</a></br>'
+	}
+	this.TOCinnerHTML = _str;
+	document.getElementById('category').innerHTML = _str
 }
 AppState.AJAX = function(url) {
 	var request = new XMLHttpRequest();

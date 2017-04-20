@@ -34,6 +34,7 @@ export default @observer class Article extends React.Component {
         componentWillUnmount() {
             hljs.initHighlighting.called = false;
             AppState.init();
+        AppState.Uninit();
         }
         componentWillUpdate(nextProps) {
             hljs.initHighlighting.called = false;

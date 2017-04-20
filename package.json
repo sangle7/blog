@@ -32,6 +32,7 @@
     "express-useragent": "^1.0.7",
     "file-loader": "^0.10.1",
     "github-markdown-css": "^2.4.1",
+    "markdown-toc": "^1.1.0",
     "marked": "^0.3.6",
     "mobx": "^3.1.7",
     "mobx-react": "^4.1.3",

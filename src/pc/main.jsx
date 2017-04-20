@@ -9,12 +9,19 @@ import {
 	Switch
 } from 'react-router-dom';
 import Sidebar from "./sidebar.js";
+import TOCbar from "./TOCbar.js";
 import styleB from "./css/container.scss";
 import Articlelist from "./articlelist.js";
 import Article from "./Article"
 import Musicplayer from "./Musicplayer"
 import MarkdownEditor from "./MarkdownEditor"
-import Aboutme from "./Aboutme"
+import Aboutme from "./Aboutme";
+import {
+    AppState
+} from './AppState.js';
+import {
+    observer
+} from 'mobx-react';
 
 /*
 function asyncComponent(getComponent) {
@@ -53,7 +60,7 @@ const Article = asyncComponent(() =>
   System.import('./Article').then(module => module.default)
 )*/
 
-class Frontpage extends React.Component {
+@observer class Frontpage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -104,7 +111,9 @@ class Frontpage extends React.Component {
 		<Link to='/tools' onClick={this.backToTopQuick.bind(this)}><li>工具</li></Link>
 		<Link to='/aboutme' onClick={this.backToTopQuick.bind(this)}><li>关于我</li></Link>
 			</ul>
-		</div><div className={style.mainbody}>
+		<Route path="/articles/编程/:id" component={TOCbar}/>
+		<Route path="/articles/生活/:id" component={TOCbar}/>
+		</div><div id="mainbody" style={{'transform':AppState.mainbodyTransform}} className={style.mainbody}>
 		<Sidebar />
 		<div className={styleB.container}>
 		<Switch>
@@ -118,8 +127,8 @@ class Frontpage extends React.Component {
 		<Route path="/aboutme" component={Aboutme}/>
 		</Switch>
 		</div>
-		<div onClick={this.backtotop.bind(this)} style={{'display':this.state.display}}className={styleB.FloatingButton}><i className="fa fa-angle-double-up" aria-hidden="true"></i></div>
 		</div>
+		<div onClick={this.backtotop.bind(this)} style={{'display':this.state.display}}className={styleB.FloatingButton}><i className="fa fa-angle-double-up" aria-hidden="true"></i></div>
 		</div>
 		</Router>)
 	}

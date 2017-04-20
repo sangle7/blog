@@ -40,11 +40,11 @@
 }
 
 .mainbody {
-    margin: 0 auto;
-    height: auto;
-    width: 1170px;
+    width: 100%;
     position: relative;
     top: 80px;
     overflow: hidden;
+    transition:.5s;
+    -webkit-transition:.5s;
 }
 
