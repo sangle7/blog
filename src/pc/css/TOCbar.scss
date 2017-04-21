@@ -3,7 +3,7 @@
     width: 220px;
     position: fixed;
     z-index: 100;
-    overflow: scroll;
+    overflow-y: scroll;
     background: white;
     transform: translateX(-220px);
     -webkit-transform: translateX(-220px);
@@ -13,7 +13,7 @@
     padding: 20px;
     box-sizing: border-box;
     a {
-            letter-spacing: .3px;
+        letter-spacing: .3px;
         text-decoration: none;
         padding-bottom: 10px;
         display: inline-block;
@@ -24,12 +24,26 @@
             text-decoration: underline;
         }
     }
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: white;
+    }
+    &::-webkit-scrollbar-thumb {
+        margin:10px 0;
+        border-radius: 10px;
+        background-color: #FF5252;
+        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    }
 }
 
 .TOCcontroller {
     left: 5px;
     top: 64px;
-height: 40px;
+    height: 40px;
     width: 40px;
     background-color: #FF8A80;
     position: fixed;
@@ -38,19 +52,18 @@ height: 40px;
     line-height: 40px;
     font-size: 24px;
     text-align: center;
-    transition:.5s;
+    transition: .5s;
     box-shadow: 0px 5px 5px #7A7A7A;
-    &:hover{
+    &:hover {
         background-color: #FF5252;
         cursor: pointer;
     }
-
 }
 
 .menu {
     color: #333;
     margin-bottom: 20px;
-    border-bottom: 1px solid  #ccc;
+    border-bottom: 1px solid #ccc;
     padding-bottom: 6px;
 }
 
