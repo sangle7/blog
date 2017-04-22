@@ -109,8 +109,7 @@
 
 .likebutton {
     height: 36px;    
-        min-width: 80px;
-    background-color: #FF5252;
+    min-width: 80px;
     border-radius: 2px;
     margin: 10px 30px;
     float: right;
@@ -147,7 +146,6 @@
 .FloatingButton{
     height: 40px;
     width: 40px;
-    background-color: #FF8A80;
     position: fixed;
     border-radius: 2px;
     right: 15%;
@@ -157,10 +155,7 @@
     font-size: 30px;
     text-align: center;
     transition:.3s;
-    &:hover{
-        background-color: #FF5252;
-        cursor: pointer;
-    }
+    cursor: pointer;
 }
 
 .abovefooter{
@@ -169,12 +164,6 @@
     padding: 10px 30px;
     clear: both;
     box-sizing: border-box;
-    a {
-        color:#FF5252;
-        &:visited{
-            color:#FF5252;
-        }
-    }
 }
 
 :global(.markdown-body) {

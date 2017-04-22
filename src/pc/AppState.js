@@ -23,6 +23,13 @@ renderer.heading = function(text, level) {
 }
 
 export const AppState = observable({
+	colorStyle: {
+		mainColor: '#FF5252',
+		darkColor: '#FF1744',
+		lightColor: '#FF8A80',
+	},
+	coverClass: "cover_red",
+	uncoverClass: 'uncover_togreen',
 	musicNumber: 0,
 	wechat: "none",
 	articlecontent: null,
@@ -46,10 +53,10 @@ export const AppState = observable({
 	TOCTransfrom: 'translateX(-220px)',
 	TOCCTransfrom: 'translateX(0)',
 });
-
 AppState.init = function() {
 	this.article = null;
 	this.articlecontent = null;
+	this.pauseandplay = 'fa fa-pause';
 	this.mdcontent = null;
 	this.articleNumber = 0;
 	this.musicNumber = 0;
@@ -229,4 +236,23 @@ AppState.getLikeNumber = function(name) {
 		}).catch((status) => { // 如果AJAX失败，获得响应代码
 			console.log('ERROR: ' + status)
 		});
+}
+AppState.changeMainColor = function() {
+	if (this.colorStyle.mainColor == '#FF5252') {
+		this.colorStyle = {
+			mainColor: '#8bc34a',
+			darkColor: '#558b2f',
+			lightColor: '#aed581',
+		}
+		this.uncoverClass = 'uncover_tored';
+		this.coverClass = "cover_green";
+	} else {
+		this.colorStyle = {
+			mainColor: '#FF5252',
+			darkColor: '#FF1744',
+			lightColor: '#FF8A80',
+		}
+		this.uncoverClass = 'uncover_togreen';
+		this.coverClass = "cover_red"
+	}
 }

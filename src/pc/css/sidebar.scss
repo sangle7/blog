@@ -44,9 +44,9 @@
         display: inline-block;
         height: 20px;
         i {
-            color: #FF5252;
             font-size: 20px;
             line-height: 20px;
+            transition:1s;
         }
         a {
             color: grey;
@@ -70,10 +70,6 @@
     a {
         color: grey;
         font-size: 15px;
-        &:hover {
-            color: #FF5252;
-        }
-        ;
     }
     li {
         padding-bottom: 5px;

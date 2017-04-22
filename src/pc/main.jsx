@@ -17,10 +17,10 @@ import Musicplayer from "./Musicplayer"
 import MarkdownEditor from "./MarkdownEditor"
 import Aboutme from "./Aboutme";
 import {
-    AppState
+	AppState
 } from './AppState.js';
 import {
-    observer
+	observer
 } from 'mobx-react';
 
 /*
@@ -98,18 +98,84 @@ const Article = asyncComponent(() =>
 		})
 	}
 
+	changeMainColor() {
+		let _cover = this.refs.cover;
+		let i = 35;
+		_cover.style.left = null;
+		_cover.style.top = null;
+		_cover.style.borderColor = null;
+		_cover.style.borderTopColor = null;
+		_cover.style.borderLeftColor = null;
+		_cover.style.display = 'block';
+		var timer = setInterval(() => {
+			i += 10;
+			_cover.style.borderWidth = i + 'px'
+			if (i >= document.body.clientWidth) {
+				nnn()
+				clearInterval(timer)
+			}
+		}, 5)
+
+		function nnn() {
+			_cover.style.top = 0;
+			_cover.style.left = 0;
+			_cover.style.borderColor = 'transparent';
+			_cover.style.borderTopColor = AppState.colorStyle.mainColor;
+			_cover.style.borderLeftColor = AppState.colorStyle.mainColor;
+			var timer2 = setInterval(() => {
+				i -= 10;
+				_cover.style.borderWidth = i + 'px';
+				if (i <= 0) {
+					_cover.style.displey = 'none';
+					clearInterval(timer2)
+				}
+			}, 5)
+		}
+		AppState.changeMainColor();
+	}
+
+	handleColorDark(e) {
+		e.nativeEvent.target.style.background = AppState.colorStyle.darkColor
+	}
+
+	handleColorMain(e) {
+		e.nativeEvent.target.style.background = AppState.colorStyle.mainColor
+	}
+
+
+	handleBTPColorMain(e) {
+		this.refs.backToTop.style.background = AppState.colorStyle.mainColor
+	}
+	handleBTPColorLight(e) {
+		this.refs.backToTop.style.background = AppState.colorStyle.lightColor
+	}
+
 
 	render() {
+		let navlist = [{
+			'link': '/articles/编程',
+			'name': '编程'
+		}, {
+			'link': '/articles/生活',
+			'name': '生活'
+		}, {
+			'link': '/music',
+			'name': '音乐'
+		}, {
+			'link': '/tools',
+			'name': '工具'
+		}, {
+			'link': '/aboutme',
+			'name': '关于我'
+		}].map((elem, index) => {
+			return <Link to={elem.link} key={index} onClick={this.backToTopQuick.bind(this)}><li style={{'background':AppState.colorStyle.mainColor}} onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleColorMain.bind(this)}>{elem.name}</li></Link>
+		})
 		return (<Router>
 			<div>
-			<div className={style.title}>
+			<div className={style.title} style={{'background':AppState.colorStyle.mainColor}}>
 		<ul className={style.ul}>
 		<li className={style.logo}><Link to='/' onClick={this.backToTopQuick.bind(this)}>Sangle</Link></li>
-		<Link to='/articles/编程' onClick={this.backToTopQuick.bind(this)}><li>编程</li></Link>
-		<Link to='/articles/生活' onClick={this.backToTopQuick.bind(this)}><li>生活</li></Link>
-		<Link to='/music' onClick={this.backToTopQuick.bind(this)}><li>音乐</li></Link>
-		<Link to='/tools' onClick={this.backToTopQuick.bind(this)}><li>工具</li></Link>
-		<Link to='/aboutme' onClick={this.backToTopQuick.bind(this)}><li>关于我</li></Link>
+		{navlist}
 			</ul>
 		<Route path="/articles/编程/:id" component={TOCbar}/>
 		<Route path="/articles/生活/:id" component={TOCbar}/>
@@ -128,7 +194,9 @@ const Article = asyncComponent(() =>
 		</Switch>
 		</div>
 		</div>
-		<div onClick={this.backtotop.bind(this)} style={{'display':this.state.display}}className={styleB.FloatingButton}><i className="fa fa-angle-double-up" aria-hidden="true"></i></div>
+		<div ref='backToTop' onMouseOver={this.handleBTPColorMain.bind(this)} onMouseOut={this.handleBTPColorLight.bind(this)} onClick={this.backtotop.bind(this)} style={{'display':this.state.display,'background':AppState.colorStyle.lightColor}} className={styleB.FloatingButton}><i className="fa fa-angle-double-up" aria-hidden="true"></i></div>
+		<div ref='uncoverFlip' onClick={this.changeMainColor.bind(this)} className={AppState.uncoverClass}><div></div></div>
+		<div ref="cover" className={AppState.coverClass}></div>
 		</div>
 		</Router>)
 	}

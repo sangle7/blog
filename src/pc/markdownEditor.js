@@ -10,7 +10,7 @@ import {
 
 
 export default @observer class MarkdownEditor extends React.Component {
-	componentWillMount(){
+	componentWillMount() {
 		document.title = "Sangle的博客-Markdown编辑器";
 	}
 	md2html() {
@@ -36,7 +36,7 @@ export default @observer class MarkdownEditor extends React.Component {
 			<header  className={style.header}>Markdown编辑器</header>
 		<section className={style.section}>
 		<textarea ref="markdown"  defaultValue="# Markdown Here!"  className={style.input} /> 
-		<button onClick={this.md2html.bind(this)} className={style.trans}>TO HTML</button>
+		<button onClick={this.md2html.bind(this)} className={style.trans} style={{'background':AppState.colorStyle.lightColor}}>TO HTML</button>
 			</section>
 			<section ref='realdocument' className={style.documentsec}>
 			<div className="markdown-body" dangerouslySetInnerHTML={{__html: AppState.mdcontent}}>

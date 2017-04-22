@@ -10,9 +10,7 @@
         span {
             font-weight: 700;
             cursor: pointer;
-            &:hover {
-                color: #EA6F5A
-            }
+            transition:2s
         }
     }
 }
@@ -81,7 +79,6 @@
     cursor: pointer;
     div {
         height: 100%;
-        background-color: #C73E3A;
     }
 }
 
@@ -95,28 +92,6 @@
     width: 100px;
     position: relative;
     cursor: pointer;
-}
-
-.volumerange {
-    display: none;
-    cursor: pointer;
-    transition: .3s;
-    -webkit-transition: .3s;
-    /* display: none; */
-    width: 50px;
-    height: 6px;
-    div {
-        height: 2px;
-        position: absolute;
-        background-color: #C73E3A;
-        cursor: pointer;
-        /*
-        display: none;*/
-        width: 50px;
-    }
-    .red {
-        background-color: #82C895;
-    }
 }
 
 .icons {

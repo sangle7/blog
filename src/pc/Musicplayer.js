@@ -28,6 +28,7 @@ export default @observer class Musicplayer extends React.Component {
 
 	componentWillUnmount() {
 		clearInterval(this.interval);
+		AppState.init()
 	}
 
 	nextSong() {
@@ -60,7 +61,7 @@ export default @observer class Musicplayer extends React.Component {
 	render() {
 		return (
 			<div>
-		<header className={style.header}>歌单<p>CLICK <span onClick={this.sentMeMail.bind(this)}>HERE</span> TO RECOMMAND SONGS TO ME!</p></header>
+		<header className={style.header}>歌单<p>CLICK <span onClick={this.sentMeMail.bind(this)} style={{'color':AppState.colorStyle.mainColor}}>HERE</span> TO RECOMMAND SONGS TO ME!</p></header>
 		<Poptip />
 			<div className={style.mainplayer}>
         <h1>{musicData[AppState.playing].name}</h1>
@@ -74,7 +75,7 @@ export default @observer class Musicplayer extends React.Component {
                 </div>
             </div>
             <div className={style.playline}  onClick={this.playFromHere.bind(this)}>
-		<div ref='green' style={{'width':AppState.timelinewidth}}></div>
+		<div ref='green' style={{'width':AppState.timelinewidth,'background':AppState.colorStyle.mainColor}}></div>
             </div>
         </div>
         <div className={style.icons}><i className="fa fa-heart" aria-hidden="true"></i><i onClick={this.nextSong.bind(this)} className="fa fa-step-forward" aria-hidden="true"></i><i onClick={this.pause.bind(this)} ref='pauseandplay' className={AppState.pauseandplay} aria-hidden="true"></i></div>

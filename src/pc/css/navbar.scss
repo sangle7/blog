@@ -1,41 +1,143 @@
 .title {
     height: 64px;
     width: 100%;
-    background-color: #FF5252;
     color: white;
     position: fixed;
     z-index: 999;
-    box-shadow: 0 2px 5px rgba(0,0,0,.26);
-    .ul{
-    	height: 50px;
-    	position: absolute;
-    	top: 0;
-    	.logo{
-    		margin-right: 20px;
-    		a{
-    			line-height: 50px;
-                    color: white;
-    		}
-    		&:hover{
-    			cursor:pointer;
-    			background-color:#FF5252;;
-    		}
-    	}
-        a{
-                 color: white;
+    transition: 2s;
+    transform-origin: top left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+    .ul {
+        height: 50px;
+        position: absolute;
+        top: 0;
+        .logo {
+            margin-right: 20px;
+            a {
+                line-height: 50px;
+                color: white;
             }
-       	li{
-    		list-style: none;
-    		line-height: 64px;
-    		font-size: 20px;
-    		float: left;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        a {
             color: white;
-    		text-align: center;padding-left: 10px;padding-right: 10px;
-    		&:hover{
-    			cursor:pointer;
-    			background-color:#FF1744;
-    		}
-    	}
+        }
+        li {
+            transition: 2s;
+            list-style: none;
+            line-height: 64px;
+            font-size: 20px;
+            float: left;
+            color: white;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+:global(.uncover_togreen) {
+    z-index: 10000;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient( -45deg, #fff, #f3f3f3 45%, #ddd 50%, #aaa 50%, #bbb 56%, #ccc 62%, #f3f3f3 80%, #fff 100%);
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-style: solid;
+        border-width: 0;
+        border-color: rgba(0, 0, 0, 0.2) #8bc34a;
+        border-radius: 0 0 0 4px;
+        // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+         box-shadow: 0 -12px 15px rgba(0, 0, 0, .3);
+    }
+    &:before {
+        -webkit-transition: all 0.4s ease-out;
+        transition: all 0.4s ease-out;
+        border-right-width: 30px;
+        border-top-width: 30px;
+    }
+    &:hover{
+        width: 70px;height: 70px
+    }
+    &:hover:before {
+        border-right-width: 70px;
+        border-top-width: 70px;
+    }
+}
+
+:global(.cover_green){
+    position:fixed;
+    z-index: 10000;
+    right:0;bottom: 0;
+    width: 0;height: 0;
+    border-width: 35px;
+    border-style: solid;
+        border-color: transparent;
+    border-bottom-color: #8bc34a;
+border-right-color: #8bc34a;
+display: none;
+}
+
+:global(.cover_red){
+    position:fixed;
+    z-index: 10000;
+    right:0;bottom: 0;
+    width: 0;height: 0;
+    border-width: 35px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: #FF5252;
+    border-right-color: #FF5252;
+    display: none;
+}
+
+:global(.uncover_tored) {
+     z-index: 10000;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient( -45deg, #fff, #f3f3f3 45%, #ddd 50%, #aaa 50%, #bbb 56%, #ccc 62%, #f3f3f3 80%, #fff 100%);
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-style: solid;
+        border-width: 0;
+        border-color: rgba(0, 0, 0, 0.2) #FF5252;
+        border-radius: 0 0 0 4px;
+        // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
+         box-shadow: 0 -12px 15px rgba(0, 0, 0, .3);
+    }
+    &:before {
+        -webkit-transition: all 0.4s ease-out;
+        transition: all 0.4s ease-out;
+        border-right-width: 30px;
+        border-top-width: 30px;
+    }
+    &:hover{
+        width: 70px;height: 70px
+    }
+    &:hover:before {
+        border-right-width: 70px;
+        border-top-width: 70px;
     }
 }
 
@@ -44,7 +146,6 @@
     position: relative;
     top: 80px;
     overflow: hidden;
-    transition:.5s;
-    -webkit-transition:.5s;
+    transition: .5s;
+    -webkit-transition: .5s;
 }
-

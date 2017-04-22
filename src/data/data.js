@@ -32,6 +32,11 @@ export let documentData = [{
 	date: '2017-04-20',
 	category: '编程'
 }, {
+	name: 'CSS实现折角特效',
+	url: '/articles/编程/CSS实现折角特效',
+	date: '2017-04-22',
+	category: '编程'
+}, {
 	name: '自定义滚动条样式',
 	url: '/articles/编程/自定义滚动条样式',
 	date: '2017-04-21',

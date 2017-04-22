@@ -24,19 +24,26 @@
             text-decoration: underline;
         }
     }
-    &::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-        background-color: white;
+    &::-webkit-scrollbar-track-piece {
+        border-radius: 0;
+        background-color: #fff;
     }
-    &::-webkit-scrollbar-track {
-        background-color: white;
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
     }
     &::-webkit-scrollbar-thumb {
-        margin:10px 0;
-        border-radius: 10px;
-        background-color: #FF5252;
-        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+        height: 50px;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        outline: 2px solid #fff;
+        outline-offset: -2px;
+        background-color: #999;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        height: 50px;
+        border-radius: 4px;
+        background-color: #9f9f9f;
     }
 }
 
@@ -45,7 +52,6 @@
     top: 64px;
     height: 40px;
     width: 40px;
-    background-color: #FF8A80;
     position: fixed;
     border-radius: 50%;
     color: white;
@@ -54,10 +60,7 @@
     text-align: center;
     transition: .5s;
     box-shadow: 0px 5px 5px #7A7A7A;
-    &:hover {
-        background-color: #FF5252;
-        cursor: pointer;
-    }
+    cursor: pointer;
 }
 
 .menu {
