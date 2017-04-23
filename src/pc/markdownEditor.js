@@ -8,7 +8,6 @@ import {
 	observer
 } from 'mobx-react';
 
-
 export default @observer class MarkdownEditor extends React.Component {
 	componentWillMount() {
 		document.title = "Sangle的博客-Markdown编辑器";

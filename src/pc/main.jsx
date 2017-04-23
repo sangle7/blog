@@ -150,7 +150,6 @@ const Article = asyncComponent(() =>
 		this.refs.backToTop.style.background = AppState.colorStyle.lightColor
 	}
 
-
 	render() {
 		let navlist = [{
 			'link': '/articles/编程',
@@ -179,19 +178,26 @@ const Article = asyncComponent(() =>
 			</ul>
 		<Route path="/articles/编程/:id" component={TOCbar}/>
 		<Route path="/articles/生活/:id" component={TOCbar}/>
-		</div><div id="mainbody" style={{'transform':AppState.mainbodyTransform}} className={style.mainbody}>
+		</div>
+
+		<div className={style.loading}></div>
+
+		<div id="mainbody" style={{'transform':AppState.mainbodyTransform}} className={style.mainbody}>
+
 		<Sidebar />
 		<div className={styleB.container}>
-		<Switch>
+
+         <Switch>
 		<Route exact path='/' component={Articlelist}/>
 		<Route exact path="/articles/编程" component={Articlelist}/>
 		<Route exact path="/articles/生活" component={Articlelist}/>
-		<Route path="/articles/编程/:id" component={Article}/>
-		<Route path="/articles/生活/:id" component={Article}/>
-		<Route path="/music" component={Musicplayer}/>
-		<Route path="/tools" component={MarkdownEditor}/>
-		<Route path="/aboutme" component={Aboutme}/>
-		</Switch>
+		<Route  path="/articles/编程/:id" component={Article}/>
+		<Route  path="/articles/生活/:id" component={Article}/>
+		<Route exact path="/music" component={Musicplayer}/>
+		<Route exact path="/tools" component={MarkdownEditor}/>
+		<Route  exact path="/aboutme" component={Aboutme}/>
+		 </Switch>
+
 		</div>
 		</div>
 		<div ref='backToTop' onMouseOver={this.handleBTPColorMain.bind(this)} onMouseOut={this.handleBTPColorLight.bind(this)} onClick={this.backtotop.bind(this)} style={{'display':this.state.display,'background':AppState.colorStyle.lightColor}} className={styleB.FloatingButton}><i className="fa fa-angle-double-up" aria-hidden="true"></i></div>

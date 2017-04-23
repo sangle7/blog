@@ -39,6 +39,7 @@ export default @observer class Aboutme extends React.Component {
 				</section>
 				</div>
 				<footer onClick={this.handlePrint.bind(this)} className={style.footer}>CLICK HERE TO <strong>PRINT</strong></footer>
-			</div>)
+			</div>
+		)
 	}
 }

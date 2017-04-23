@@ -40,7 +40,7 @@
 }
 
 :global(.uncover_togreen) {
-    z-index: 10000;
+    z-index: 1000;
     position: fixed;
     width: 30px;
     height: 30px;
@@ -79,7 +79,7 @@
 
 :global(.cover_green){
     position:fixed;
-    z-index: 10000;
+    z-index: 1000;
     right:0;bottom: 0;
     width: 0;height: 0;
     border-width: 35px;
@@ -92,7 +92,7 @@ display: none;
 
 :global(.cover_red){
     position:fixed;
-    z-index: 10000;
+    z-index: 1000;
     right:0;bottom: 0;
     width: 0;height: 0;
     border-width: 35px;
@@ -104,7 +104,7 @@ display: none;
 }
 
 :global(.uncover_tored) {
-     z-index: 10000;
+     z-index: 1000;
     position: fixed;
     width: 30px;
     height: 30px;
@@ -140,7 +140,24 @@ display: none;
         border-top-width: 70px;
     }
 }
-
+.loading{
+    z-index: 1001;
+    width: 100%;
+    position: fixed;
+    top:0;
+    height: 100%;
+    background-color: rgba(255,255,255,0.3);
+    z-index: 10;
+    transition: .5s;
+    -webkit-transition: .5s;
+    
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);
+    
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+}
 .mainbody {
     width: 100%;
     position: relative;

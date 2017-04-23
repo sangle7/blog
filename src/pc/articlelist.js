@@ -14,7 +14,6 @@ import {
 import {
 	AppState
 } from './AppState.js'
-
 export default @observer class Articlelist extends React.Component {
 	handleShowMore() {
 		AppState.showMoreArticles();
@@ -65,6 +64,7 @@ export default @observer class Articlelist extends React.Component {
 		{documents}
 			</section>
 			<footer style={{'display':_temp.length==documentrender.length?'none':'block'}}onClick={this.handleShowMore.bind(this)} className={style.footer}>More</footer>
-		</div>)
+			</div>
+		)
 	}
 }

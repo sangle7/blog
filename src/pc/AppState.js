@@ -148,7 +148,9 @@ AppState.initTOC = function() {
 		_str += '<a class=TOC-' + TOClist[i].tagName + ' href=#' + TOClist[i].id + '>' + TOClist[i].id + '</a></br>'
 	}
 	this.TOCinnerHTML = _str;
-	document.getElementById('category').innerHTML = _str
+	if (document.getElementById('category')) {
+		document.getElementById('category').innerHTML = _str
+	}
 }
 AppState.AJAX = function(url) {
 	var request = new XMLHttpRequest();
