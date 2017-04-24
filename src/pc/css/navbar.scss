@@ -5,7 +5,6 @@
     position: fixed;
     z-index: 999;
     transition: 2s;
-    transform-origin: top left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
     .ul {
         height: 50px;
@@ -104,7 +103,7 @@ display: none;
 }
 
 :global(.uncover_tored) {
-     z-index: 1000;
+    z-index: 1000;
     position: fixed;
     width: 30px;
     height: 30px;
@@ -143,20 +142,15 @@ display: none;
 .loading{
     z-index: 1001;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top:0;
     height: 100%;
-    background-color: rgba(255,255,255,0.3);
-    z-index: 10;
+     //background-color: rgba(255,255,255,0.3);
+    background-color: #FF5252;
     transition: .5s;
     -webkit-transition: .5s;
-    
-    -webkit-filter: blur(10px); /* Chrome, Opera */
-       -moz-filter: blur(10px);
-        -ms-filter: blur(10px);    
-            filter: blur(10px);
-    
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+      text-align: center;
+          line-height: 500px;
 }
 .mainbody {
     width: 100%;

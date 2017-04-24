@@ -81,8 +81,12 @@ const Article = asyncComponent(() =>
 			}
 		}
 	}
-	backToTopQuick() {
+	handleRouteChange() {
 		document.body.scrollTop = 0;
+		this.refs.loading.style.opacity='1';
+		setTimeout(()=>{
+			this.refs.loading.style.opacity='0';
+		},2000)
 	}
 	backtotop() {
 		var timer = null;
@@ -167,26 +171,26 @@ const Article = asyncComponent(() =>
 			'link': '/aboutme',
 			'name': '关于我'
 		}].map((elem, index) => {
-			return <Link to={elem.link} key={index} onClick={this.backToTopQuick.bind(this)}><li style={{'background':AppState.colorStyle.mainColor}} onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleColorMain.bind(this)}>{elem.name}</li></Link>
+			return <Link to={elem.link} key={index} ><li style={{'background':AppState.colorStyle.mainColor}} onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleColorMain.bind(this)}>{elem.name}</li></Link>
 		})
 		return (<Router>
 			<div>
 			<div className={style.title} style={{'background':AppState.colorStyle.mainColor}}>
 		<ul className={style.ul}>
-		<li className={style.logo}><Link to='/' onClick={this.backToTopQuick.bind(this)}>Sangle</Link></li>
+		<li className={style.logo}><Link to='/' onClick={this.handleRouteChange.bind(this)}>Sangle</Link></li>
 		{navlist}
 			</ul>
 		<Route path="/articles/编程/:id" component={TOCbar}/>
 		<Route path="/articles/生活/:id" component={TOCbar}/>
 		</div>
 
-		<div className={style.loading}></div>
-
 		<div id="mainbody" style={{'transform':AppState.mainbodyTransform}} className={style.mainbody}>
 
 		<Sidebar />
 		<div className={styleB.container}>
 
+	
+         
          <Switch>
 		<Route exact path='/' component={Articlelist}/>
 		<Route exact path="/articles/编程" component={Articlelist}/>
