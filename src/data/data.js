@@ -27,6 +27,11 @@ export let documentData = [{
 	date: '2017-04-04',
 	category: '编程'
 }, {
+	name: 'CommonsChunkPlugin的正确姿势',
+	url: '/articles/编程/CommonsChunkPlugin的正确姿势',
+	date: '2017-04-27',
+	category: '编程'
+}, {
 	name: '使用requestAnimationFrame',
 	url: '/articles/编程/使用requestAnimationFrame',
 	date: '2017-04-25',

@@ -7,6 +7,12 @@
     margin-bottom: 100px;
     margin-right: 370px;
 }
+@media (max-width: 780px) {
+    .container{
+        width: 90%;
+        margin: 0 auto 100px auto;
+    }
+}
 
 .header {
     width: 100%;

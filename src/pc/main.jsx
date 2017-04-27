@@ -177,7 +177,7 @@ const Article = asyncComponent(() =>
 			<div>
 			<div className={style.title} style={{'background':AppState.colorStyle.mainColor}}>
 		<ul className={style.ul}>
-		<li className={style.logo}><Link to='/' onClick={this.handleRouteChange.bind(this)}>Sangle</Link></li>
+		<li className={style.logo}><Link to='/'>Sangle</Link></li>
 		{navlist}
 			</ul>
 		<Route path="/articles/编程/:id" component={TOCbar}/>
