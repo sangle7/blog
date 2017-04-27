@@ -27,6 +27,11 @@ export let documentData = [{
 	date: '2017-04-04',
 	category: '编程'
 }, {
+	name: '使用requestAnimationFrame',
+	url: '/articles/编程/使用requestAnimationFrame',
+	date: '2017-04-25',
+	category: '编程'
+}, {
 	name: 'CSS Grid布局',
 	url: '/articles/编程/CSS Grid布局',
 	date: '2017-04-26',
