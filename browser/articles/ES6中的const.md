@@ -11,7 +11,7 @@ numbers[4] = 5
 console.log(numbers[4]) // print 5 
 ```
 
-```c
+```javascript
 # C
 const int numbers[] = {1, 2, 3, 4, 6};
 numbers[4] = 5; // error: read-only variable is not assignable
