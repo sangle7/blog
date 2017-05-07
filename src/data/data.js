@@ -1,24 +1,24 @@
 export let recommendData = [{
+    name: 'CommonsChunkPlugin的正确姿势',
+    url: '/articles/编程/CommonsChunkPlugin的正确姿势',
+}, {
     name: '使用000webhost虚拟空间搭建网站',
     url: '/articles/编程/使用000webhost虚拟空间搭建网站'
+}, {
+    name: 'CSS Grid布局',
+    url: '/articles/编程/CSS Grid布局',
+}, {
+    name: 'markdown生成TOC',
+    url: '/articles/编程/markdown生成TOC',
+}, {
+    name: '自用win10软件存档',
+    url: '/articles/编程/自用win10软件存档',
 }, {
     name: 'React-router使用踩坑经历',
     url: '/articles/编程/React-router使用踩坑经历'
 }, {
-    name: '前端面试题目整理IV',
-    url: '/articles/编程/前端面试题目整理IV'
-}, {
     name: '博客搭建过程整理',
     url: '/articles/编程/博客搭建过程整理'
-}, {
-    name: '初识mySQL',
-    url: '/articles/编程/初识mySQL'
-}, {
-    name: 'JS高级程序设计整理',
-    url: '/articles/编程/JS高级程序设计整理'
-}, {
-    name: 'CSS复习',
-    url: '/articles/编程/CSS复习'
 }]
 
 export let documentData = [{
@@ -30,6 +30,11 @@ export let documentData = [{
     name: '解决锚点定位偏移问题',
     url: '/articles/编程/解决锚点定位偏移问题',
     date: '2017-05-03',
+    category: '编程'
+}, {
+    name: 'js中看似简单的数组去重',
+    url: '/articles/编程/js中看似简单的数组去重',
+    date: '2017-05-06',
     category: '编程'
 }, {
     name: '利用CSS生成带编号的TOC',
