@@ -27,6 +27,11 @@ export let documentData = [{
     date: '2017-04-04',
     category: '编程'
 }, {
+    name: '浏览器中的ECMAScript模块',
+    url: '/articles/编程/浏览器中的ECMAScript模块',
+    date: '2017-05-10',
+    category: '编程'
+}, {
     name: '解决锚点定位偏移问题',
     url: '/articles/编程/解决锚点定位偏移问题',
     date: '2017-05-03',
