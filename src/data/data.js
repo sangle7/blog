@@ -27,6 +27,11 @@ export let documentData = [{
     date: '2017-04-04',
     category: '编程'
 }, {
+    name: '我们和你们不一样',
+    url: '/articles/生活/我们和你们不一样',
+    date: '2017-05-13',
+    category: '生活'
+}, {
     name: '浏览器中的ECMAScript模块',
     url: '/articles/编程/浏览器中的ECMAScript模块',
     date: '2017-05-10',
