@@ -1,8 +1,6 @@
 30题目录：[https://javascript30.com/](https://javascript30.com/)
 
-## 01 - JavaScript Drum Kit
-
-### 最终代码
+## 最终代码
 
 ```javascript
 function removeTransition(e) {
@@ -25,9 +23,7 @@ function removeTransition(e) {
   window.addEventListener('keydown', playSound);
 ```
 
-### 知识点
-
-#### transitionend 事件
+## transitionend 事件
 
 transitionend 事件在 CSS 完成过渡后触发。
 
@@ -35,7 +31,7 @@ transitionend 事件在 CSS 完成过渡后触发。
 
 更多关于 CSS 过渡，请查看我们的 [CSS3 过渡](http://www.runoob.com/css/css3-transitions.html)。
 
-#### classList
+## classList
 
 classList 属性返回元素的类名，作为 DOMTokenList 对象。
 
@@ -51,13 +47,13 @@ classList 属性是只读的，但你可以使用 add() 和 remove() 方法修�
 | remove(*class1, class2, ...*) | 移除元素中一个或多个类名。**注意：** 移除不存在的类名，不会报错。      |
 | toggle(*class, *true\|false)  | 在元素中切换类名。第一个参数为要在元素中移除的类名，并返回 false。 如果该类名不存在则会在元素中添加类名，并返回 true。 第二个是可选参数，是个布尔值用于设置元素是否强制添加或移除类，不管该类名是否存在。例如：移除一个 class: *element*.classList.toggle("classToRemove", false); 添加一个 class: *element*.classList.toggle("classToAdd", true);**注意： **Internet Explorer 或 Opera 12 及其更早版本不支持第二个参数。 |
 
-#### querySelector() 
+## querySelector()
 
 *querySelector()* 方法返回文档中匹配指定 CSS 选择器的一个元素。
 
 **注意：** *querySelector()* 方法仅仅返回匹配指定选择器的第一个元素。如果你需要返回所有的元素，请使用 *querySelectorAll()* 方法替代。
 
-#### Array.from
+## Array.from
 
 *Array.from*() 方法从一个类似数组或可迭代的对象中创建一个新的数组实例。
 
