@@ -1,50 +1,54 @@
 import React from "react";
 import style from "./css/container.scss";
 import {
-	Link
+    Link
 } from 'react-router-dom';
 import hljs from 'highlight.js';
 import {
-	AppState
+    AppState
 } from './AppState.js';
 import {
-	observer
+    observer
 } from 'mobx-react';
 
 
 export default @observer class Article extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	componentWillMount() {
-		AppState.initArticle(this.props.match.params.id)
-		AppState.changeAppBar('所有文章 > ' + AppState.article.category)
-	}
-	componentWillUnmount() {
-		hljs.initHighlighting.called = false;
-		AppState.init();
-	}
-	componentWillUpdate(nextProps) {
-		hljs.initHighlighting.called = false;
-		AppState.initArticle(nextProps.match.params.id)
-	}
-	handleLike() {
-		if (!AppState.likeflag) {
-			AppState.handleArticleLike(AppState.article.name)
-		}
-	}
-	handlePrint() {
-		let newstr = this.refs.realdocument.innerHTML;
-		let oldstr = document.body.innerHTML;
-		document.body.innerHTML = newstr;
-		window.print();
-		document.body.innerHTML = oldstr;
-		return false;
-	}
-	render() {
-		let categoryLink = '/articles/' + AppState.article.category
-		return (
-			<div>
+    constructor(props) {
+        super(props);
+    }
+    componentWillMount() {
+        AppState.initArticle(this.props.match.params.id)
+        AppState.changeAppBar('所有文章 > ' + AppState.article.category)
+    }
+    componentDidMount() {
+        hljs.initHighlighting();
+        hljs.initHighlighting.called = false;
+    }
+    componentDidUpdate() {
+        hljs.initHighlighting();
+        hljs.initHighlighting.called = false;
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.match.params.id !== nextProps.match.params.id;
+    }
+    componentWillUnmount() {
+        hljs.initHighlighting.called = false;
+        AppState.init();
+    }
+    componentWillUpdate(nextProps) {
+        hljs.initHighlighting.called = false;
+        AppState.initArticle(nextProps.match.params.id)
+        hljs.initHighlighting();
+    }
+    handleLike() {
+        if (!AppState.likeflag) {
+            AppState.handleArticleLike(AppState.article.name)
+        }
+    }
+    render() {
+        let categoryLink = '/articles/' + AppState.article.category
+        return (
+            <div>
 				<div ref='realdocument'>
 				<section className={style.titlesec}> 
 				<div className={style.documentinfo}>
@@ -56,5 +60,5 @@ export default @observer class Article extends React.Component {
 				<div className={style.likebutton} onClick={this.handleLike.bind(this)}><i className={AppState.likeheart} aria-hidden="true"><i className={style.touchpressed}></i></i> <span className={style.floatright}>{AppState.likenumber}</span></div>
 				</div>
 			</div>)
-	}
+    }
 }

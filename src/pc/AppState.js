@@ -90,10 +90,9 @@ AppState.initArticle = function(a) {
     this.TOCTransfrom = 'translateX(0)';
     this.TOCCTransfrom = 'translateX(220px)';
     this.TOCcontroller = 'fa fa-angle-left';
-    let number;
-    let _xxx = documentData.filter((elem, index) => {
+    let number = documentData.filter((elem, index) => {
         if (elem.name == a) {
-            number = index;
+            return index;
         }
     })
     if (this.article == null || this.article.name !== documentData[number].name) {
@@ -123,7 +122,8 @@ AppState.changeAriticle = function(aaa) {
                 this.initTOC();
                 this.articlecache[aaa] = this.articlecontent
                 hljs.initHighlighting();
-                hljs.initHighlighting.called = false;
+            hljs.initHighlighting.called = false;
+
             })
     }
 }

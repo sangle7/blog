@@ -27,6 +27,12 @@ export let documentData = [{
     date: '2017-04-04',
     category: '编程'
 }, {
+    name: 'JS30题-06-Type Ahead',
+    url: '/articles/编程/JS30题-06-Type Ahead',
+    date: '2017-06-07',
+    category: '编程'
+
+}, {
     name: 'JS30题-01-JavaScript Drum Kit',
     url: '/articles/编程/JS30题-01-JavaScript Drum Kit',
     date: '2017-05-21',
