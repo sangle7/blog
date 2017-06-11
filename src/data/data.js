@@ -31,7 +31,6 @@ export let documentData = [{
     url: '/articles/编程/JS30题-06-Type Ahead',
     date: '2017-06-07',
     category: '编程'
-
 }, {
     name: 'JS30题-01-JavaScript Drum Kit',
     url: '/articles/编程/JS30题-01-JavaScript Drum Kit',
@@ -250,20 +249,45 @@ export let documentData = [{
 }]
 
 export let musicData = [{
+    name: 'Shape of You',
+    artist: 'Ed Sheeran',
+    url: 'http://link.hhtjim.com/163/451703096.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s29266153.jpg'
+}, {
+    name: "There's Nothing Holdin' Me Back",
+    artist: 'Shawn Mendes',
+    url: 'http://link.hhtjim.com/163/473602620.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s29431365.jpg'
+}, {
+    name: 'Company',
+    artist: 'Justin Bieber',
+    url: 'http://link.hhtjim.com/163/36586669.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s28756724.jpg'
+}, {
     name: 'A Lovely Night',
     artist: 'Emma Stone & Ryan Gosling',
     url: 'http://link.hhtjim.com/163/445867335.mp3',
     cover: 'https://img3.doubanio.com/lpic/s29315732.jpg'
 }, {
-    name: '二人セゾン',
-    artist: '欅坂46',
-    url: 'http://link.hhtjim.com/163/443882735.mp3',
-    cover: 'https://img3.doubanio.com/lpic/s29170733.jpg'
+    name: '2U',
+    artist: 'David Guetta / Justin Bieber',
+    url: 'http://link.hhtjim.com/163/482988471.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s29470863.jpg'
 }, {
-    name: '小幸运',
-    artist: '田馥甄',
-    url: 'http://link.hhtjim.com/xiami/mQQ8TS78e31.mp3',
-    cover: 'https://img3.doubanio.com/lpic/s28321965.jpg'
+    name: 'Attention',
+    artist: 'Charlie Puth',
+    url: 'http://link.hhtjim.com/163/473817398.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s29432435.jpg'
+}, {
+    name: 'There For You',
+    artist: 'Martin Garrix / Troye Sivan ',
+    url: 'http://link.hhtjim.com/163/480426313.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s29456286.jpg'
+}, {
+    name: 'Love Yourself',
+    artist: 'Justin Bieber',
+    url: 'http://link.hhtjim.com/163/461544157.mp3',
+    cover: 'https://img3.doubanio.com/lpic/s28756724.jpg'
 }, {
     name: 'BINGO!',
     artist: 'AKB48',
@@ -294,11 +318,6 @@ export let musicData = [{
     artist: '乃木坂46',
     url: 'http://link.hhtjim.com/163/414691362.mp3',
     cover: 'https://img1.doubanio.com/lpic/s28031419.jpg'
-}, {
-    name: 'Epilogue',
-    artist: 'Justin Hurwitz',
-    url: 'http://link.hhtjim.com/163/445867344.mp3',
-    cover: 'https://img3.doubanio.com/lpic/s29315732.jpg'
 }, {
     name: 'Call Me Maybe',
     artist: 'Carly Rae Jepsen',
@@ -339,11 +358,6 @@ export let musicData = [{
     artist: '李荣浩',
     url: 'http://link.hhtjim.com/163/428375722.mp3',
     cover: 'https://img1.doubanio.com/lpic/s29024248.jpg'
-}, {
-    name: '几个你',
-    artist: '薛之谦',
-    url: 'http://link.hhtjim.com/163/169140.mp3',
-    cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490165606&di=c2f69aff20544134eaa4bffae1166df9&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.565656.com%2Fpic%2Falbum%2F2012%2F07%2F31%2F63479339505856445302718115.jpg'
 }, {
     name: '放不过自己',
     artist: '方大同',
@@ -390,30 +404,15 @@ export let musicData = [{
     url: 'http://link.hhtjim.com/163/186005.mp3',
     cover: 'https://img5.doubanio.com/lpic/s3737076.jpg'
 }, {
-    name: '好好',
-    artist: '五月天',
-    url: 'http://link.hhtjim.com/xiami/mSezFi81a11.mp3',
-    cover: 'https://img3.doubanio.com/lpic/s28909701.jpg'
-}, {
     name: '最长的电影',
     artist: '周杰伦',
     url: 'http://link.hhtjim.com/163/185821.mp3',
     cover: 'https://img3.doubanio.com/lpic/s2753832.jpg'
 }, {
-    name: '这个人已经与我无关',
-    artist: '田馥甄',
-    url: 'http://link.hhtjim.com/xiami/xL2GlWabb6e.mp3',
-    cover: 'https://img3.doubanio.com/lpic/s27158662.jpg'
-}, {
     name: '安静',
     artist: '周杰伦',
     url: 'http://link.hhtjim.com/163/186139.mp3',
     cover: 'https://img3.doubanio.com/lpic/s3750422.jpg'
-}, {
-    name: '终于结束的起点',
-    artist: '五月天',
-    url: 'http://link.hhtjim.com/xiami/xMPy3Oaa54d.mp3',
-    cover: 'https://img3.doubanio.com/lpic/s28909701.jpg'
 }, {
     name: '晴天',
     artist: '周杰伦',
@@ -424,11 +423,6 @@ export let musicData = [{
     artist: '周杰伦',
     url: 'http://link.hhtjim.com/163/29822013.mp3',
     cover: 'https://img3.doubanio.com/lpic/s27969915.jpg'
-}, {
-    name: 'サイレントマジョリティー',
-    artist: '欅坂46',
-    url: 'http://link.hhtjim.com/163/408629344.mp3',
-    cover: 'https://img1.doubanio.com/lpic/s29345038.jpg'
 }, {
     name: '今、話したい誰かがいる',
     artist: '乃木坂46',

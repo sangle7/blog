@@ -14,7 +14,7 @@ module.exports = [{
     output: {
         path: assetsPath,
         publicPath: "/build/",
-        filename: '[chunkhash].[name].js'
+        filename: '[name].js'
     },
     devtool: false,
     module: {
@@ -63,7 +63,7 @@ module.exports = [{
     output: {
         path: assetsMobilePath,
         publicPath: "/build/",
-        filename: '[chunkhash].[name].js'
+        filename: '[name].js'
     },
     devtool: false,
     module: {

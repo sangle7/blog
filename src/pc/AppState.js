@@ -52,7 +52,7 @@ export const AppState = observable({
     TOCcontroller: 'fa fa-angle-left',
     mainbodyTransform: 'translateX(0)',
     TOCTransfrom: 'translateX(-220px)',
-    TOCCTransfrom: 'translateX(0)',
+    TOCCTransfrom: 'translateX(0)'
 });
 AppState.init = function() {
     this.article = null;
@@ -90,11 +90,10 @@ AppState.initArticle = function(a) {
     this.TOCTransfrom = 'translateX(0)';
     this.TOCCTransfrom = 'translateX(220px)';
     this.TOCcontroller = 'fa fa-angle-left';
-    let number = documentData.filter((elem, index) => {
-        if (elem.name == a) {
-            return index;
-        }
+    let newArr = documentData.map((elem, index) => {
+        return elem.name
     })
+    let number = newArr.indexOf(a)
     if (this.article == null || this.article.name !== documentData[number].name) {
         this.article = documentData[number];
         this.nextArticle = documentData[number + 1] || documentData[0];
@@ -122,7 +121,7 @@ AppState.changeAriticle = function(aaa) {
                 this.initTOC();
                 this.articlecache[aaa] = this.articlecontent
                 hljs.initHighlighting();
-            hljs.initHighlighting.called = false;
+                hljs.initHighlighting.called = false;
 
             })
     }

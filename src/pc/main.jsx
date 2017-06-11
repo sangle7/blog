@@ -103,6 +103,7 @@ const Article = asyncComponent(() =>
 	}
 
 	changeMainColor() {
+
 		let _cover = this.refs.cover;
 		let i = 35;
 		_cover.style.left = null;
@@ -146,6 +147,9 @@ const Article = asyncComponent(() =>
 		e.nativeEvent.target.style.background = AppState.colorStyle.mainColor
 	}
 
+	handleTransparent(e){
+		e.nativeEvent.target.style.background = 'transparent'
+	}
 
 	handleBTPColorMain(e) {
 		this.refs.backToTop.style.background = AppState.colorStyle.mainColor
@@ -171,7 +175,7 @@ const Article = asyncComponent(() =>
 			'link': '/aboutme',
 			'name': '关于我'
 		}].map((elem, index) => {
-			return <Link to={elem.link} key={index} ><li style={{'background':AppState.colorStyle.mainColor}} onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleColorMain.bind(this)}>{elem.name}</li></Link>
+			return <Link to={elem.link} key={index} ><li onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleTransparent.bind(this)}>{elem.name}</li></Link>
 		})
 		return (<Router>
 			<div>
@@ -179,6 +183,7 @@ const Article = asyncComponent(() =>
 		<ul className={style.ul}>
 		<li className={style.logo}><Link to='/'>Sangle</Link></li>
 		{navlist}
+		<a href="http://notes.sangle7.com" target="_blank"><li style={{'float':'right'}}><i className="fa fa-pencil-square" aria-hidden="true"></i> Scratch</li></a>
 			</ul>
 		<Route path="/articles/编程/:id" component={TOCbar}/>
 		<Route path="/articles/生活/:id" component={TOCbar}/>

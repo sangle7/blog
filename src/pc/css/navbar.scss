@@ -9,6 +9,9 @@
     .ul {
         height: 50px;
         position: absolute;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
         top: 0;
         .logo {
             margin-right: 20px;
@@ -24,7 +27,7 @@
             color: white;
         }
         li {
-            transition: 2s;
+            background: 'transparent';
             list-style: none;
             line-height: 64px;
             font-size: 20px;
@@ -59,7 +62,7 @@
         border-color: rgba(0, 0, 0, 0.2) #8bc34a;
         border-radius: 0 0 0 4px;
         // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-         box-shadow: 0 -12px 15px rgba(0, 0, 0, .3);
+        box-shadow: 0 -12px 15px rgba(0, 0, 0, .3);
     }
     &:before {
         -webkit-transition: all 0.4s ease-out;
@@ -67,8 +70,9 @@
         border-right-width: 30px;
         border-top-width: 30px;
     }
-    &:hover{
-        width: 70px;height: 70px
+    &:hover {
+        width: 70px;
+        height: 70px
     }
     &:hover:before {
         border-right-width: 70px;
@@ -76,24 +80,28 @@
     }
 }
 
-:global(.cover_green){
-    position:fixed;
+:global(.cover_green) {
+    position: fixed;
     z-index: 1000;
-    right:0;bottom: 0;
-    width: 0;height: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
     border-width: 35px;
     border-style: solid;
-        border-color: transparent;
+    border-color: transparent;
     border-bottom-color: #8bc34a;
-border-right-color: #8bc34a;
-display: none;
+    border-right-color: #8bc34a;
+    display: none;
 }
 
-:global(.cover_red){
-    position:fixed;
+:global(.cover_red) {
+    position: fixed;
     z-index: 1000;
-    right:0;bottom: 0;
-    width: 0;height: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
     border-width: 35px;
     border-style: solid;
     border-color: transparent;
@@ -123,7 +131,7 @@ display: none;
         border-color: rgba(0, 0, 0, 0.2) #FF5252;
         border-radius: 0 0 0 4px;
         // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 1px 1px rgba(0, 0, 0, 0.2);
-         box-shadow: 0 -12px 15px rgba(0, 0, 0, .3);
+        box-shadow: 0 -12px 15px rgba(0, 0, 0, .3);
     }
     &:before {
         -webkit-transition: all 0.4s ease-out;
@@ -131,27 +139,30 @@ display: none;
         border-right-width: 30px;
         border-top-width: 30px;
     }
-    &:hover{
-        width: 70px;height: 70px
+    &:hover {
+        width: 70px;
+        height: 70px
     }
     &:hover:before {
         border-right-width: 70px;
         border-top-width: 70px;
     }
 }
-.loading{
+
+.loading {
     z-index: 1001;
     width: 100%;
     position: absolute;
-    top:0;
+    top: 0;
     height: 100%;
-     //background-color: rgba(255,255,255,0.3);
+    //background-color: rgba(255,255,255,0.3);
     background-color: #FF5252;
     transition: .5s;
     -webkit-transition: .5s;
-      text-align: center;
-          line-height: 500px;
+    text-align: center;
+    line-height: 500px;
 }
+
 .mainbody {
     width: 100%;
     position: relative;
