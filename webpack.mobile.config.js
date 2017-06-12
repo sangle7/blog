@@ -11,7 +11,11 @@ module.exports = {
         publicPath: "/build/",
     },
     devServer: {
-        historyApiFallback: true,
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/$/, to: '/index.html' },
+            ]
+        },
         contentBase: 'buildmobile'
     },
     devtool: 'inline-source-map',

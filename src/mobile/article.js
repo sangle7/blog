@@ -17,7 +17,12 @@ export default @observer class Article extends React.Component {
         super(props);
     }
     componentWillMount() {
-        AppState.initArticle(this.props.match.params.id)
+        let timer = setInterval(() => {
+            if (AppState.documentData.slice() != false) {
+                AppState.initArticle(this.props.match.params.id)
+                clearInterval(timer)
+            }
+        }, 100)
         AppState.changeAppBar('所有文章 > ' + AppState.article.category)
     }
     componentDidMount() {

@@ -16,6 +16,7 @@ import Article from "./Article"
 import Musicplayer from "./Musicplayer"
 import MarkdownEditor from "./MarkdownEditor"
 import Aboutme from "./Aboutme";
+import ErrorPage from "./ErrorPage";
 import {
 	AppState
 } from './AppState.js';
@@ -67,6 +68,9 @@ const Article = asyncComponent(() =>
 			display: 'none'
 		}
 	}
+	    componentWillMount() {
+        AppState.initArticleList()
+    }
 	componentDidMount() {
 		// loadMusicplayer(() => {})
 		window.onscroll = () => {
@@ -205,6 +209,7 @@ const Article = asyncComponent(() =>
 		<Route exact path="/music" component={Musicplayer}/>
 		<Route exact path="/tools" component={MarkdownEditor}/>
 		<Route  exact path="/aboutme" component={Aboutme}/>
+		<Route  component={ErrorPage}/>
 		 </Switch>
 
 		</div>

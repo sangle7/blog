@@ -1,41 +1,41 @@
 import React from "react";
 import style from "./css/sidebar.scss"
 import {
-	recommendData
-} from './../data/data.js';
-import {
-	observer
+    observer
 } from 'mobx-react';
 import {
-	AppState
+    AppState
 } from './AppState.js';
 import {
-	Link
+    Link
 } from 'react-router-dom';
 
 export default @observer class Sidebar extends React.Component {
-	handleHoverWC() {
-		AppState.showWechatImg();
-	}
-	handleOut() {
-		AppState.hideWechatImg();
-	}
-	backToTopQuick() {
-		document.body.scrollTop = 0;
-	}
-	handleColorNormal(e) {
-		e.nativeEvent.target.style.color = 'grey'
-	}
-	handleHover(e) {
-		e.nativeEvent.target.style.color = AppState.colorStyle.mainColor
-	}
-	render() {
-		let recommand = recommendData.map((elem, index) => {
-			return <li onMouseOver={this.handleHover.bind(this)} onMouseOut={this.handleColorNormal.bind(this)} key={index} onClick={this.backToTopQuick.bind(this)}><Link to={elem.url}>{elem.name}</Link></li>
-		})
+    handleHoverWC() {
+        AppState.showWechatImg();
+    }
+    handleOut() {
+        AppState.hideWechatImg();
+    }
+    backToTopQuick() {
+        document.body.scrollTop = 0;
+    }
+    handleColorNormal(e) {
+        e.nativeEvent.target.style.color = 'grey'
+    }
+    handleHover(e) {
+        e.nativeEvent.target.style.color = AppState.colorStyle.mainColor
+    }
+    render() {
+        let recommendData = AppState.documentData.slice().filter((elem) => {
+            return elem.recommand
+        })
+        let recommand = recommendData.map((elem, index) => {
+            return <li onMouseOver={this.handleHover.bind(this)} onMouseOut={this.handleColorNormal.bind(this)} key={index} onClick={this.backToTopQuick.bind(this)}><Link to={elem.url}>{elem.name}</Link></li>
+        })
 
 
-		return (<div className={style.sidebar}>
+        return (<div className={style.sidebar}>
 		<div className={style.personalinfo}>
 			<img src={require('./../img/info.jpg')}className={style.infopic}/>
 			<p>Sangle</p>
@@ -70,5 +70,5 @@ export default @observer class Sidebar extends React.Component {
 		</ul>
 		</div>
 		</div>)
-	}
+    }
 }

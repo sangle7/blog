@@ -1,9 +1,6 @@
 import React from "react";
 import style from "./css/container.scss";
 import {
-    documentData
-} from './../data/data.js';
-import {
     BrowserRouter as Router,
     Route,
     Link
@@ -12,7 +9,8 @@ import {
     observer
 } from 'mobx-react';
 import {
-    AppState
+    AppState,
+    documentData
 } from './AppState.js'
 export default @observer class Articlelist extends React.Component {
     handleShowMore() {
@@ -21,7 +19,6 @@ export default @observer class Articlelist extends React.Component {
     componentWillUnmount() {
         AppState.init();
     }
-
 
     render() {
         let document_, categoryrender;
@@ -34,7 +31,7 @@ export default @observer class Articlelist extends React.Component {
         if (cat[0]) {
             categoryrender = '> ' + cat[0];
             document.title = "Sangle的博客-" + cat[0];
-            document_ = documentData.filter((elem) => {
+            document_ = AppState.documentData.filter((elem) => {
                 if (elem.category == cat[0])
                     return elem
             });
@@ -42,11 +39,7 @@ export default @observer class Articlelist extends React.Component {
             document.title = "Sangle的博客"
         }
 
-        let documentrender = document_ || documentData;
-
-        documentrender.sort(function(b, a) {
-            return parseInt(a.date.replace(/-/g, '')) - parseInt(b.date.replace(/-/g, ''))
-        })
+        let documentrender = document_ || AppState.documentData.slice()
 
         let _temp = documentrender.slice(0, AppState.articleNumber + 10);
 

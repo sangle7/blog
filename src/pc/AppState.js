@@ -3,9 +3,6 @@ import {
 } from 'mobx';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import {
-    documentData
-} from './../data/data.js';
 
 let renderer = new marked.Renderer();
 marked.setOptions({
@@ -22,7 +19,6 @@ renderer.heading = function(text, level) {
     return '<h' + level + ' class="header-TOC">' + text + '</h' + level + '>';
 }
 
-
 export const AppState = observable({
     colorStyle: {
         mainColor: '#FF5252',
@@ -34,7 +30,7 @@ export const AppState = observable({
     musicNumber: 0,
     wechat: "none",
     articlecontent: null,
-    article: null,
+    article: { name: '', url: '', category: '', date: '' },
     mdcontent: null,
     poptipsubmit: false,
     poptipstyle: 'none',
@@ -52,10 +48,12 @@ export const AppState = observable({
     TOCcontroller: 'fa fa-angle-left',
     mainbodyTransform: 'translateX(0)',
     TOCTransfrom: 'translateX(-220px)',
-    TOCCTransfrom: 'translateX(0)'
+    TOCCTransfrom: 'translateX(0)',
+    documentData: [],
+    musicData: []
 });
 AppState.init = function() {
-    this.article = null;
+    this.article = { name: '', url: '', category: '', date: '' };
     this.articlecontent = null;
     this.pauseandplay = 'fa fa-pause';
     this.mdcontent = null;
@@ -66,6 +64,25 @@ AppState.init = function() {
     this.TOCinnerHTML = '';
     this.TOCcontroller = 'fa fa-angle-left';
 }
+AppState.initArticleList = function() {
+    let _documentData = [];
+    fetch('http://test.sangle7.com/php/getArticleList.php')
+        .then(blob => blob.json())
+        .then((data) => {
+            _documentData.push(...data)
+            this.documentData = _documentData.sort((b, a) => {
+                return parseInt(a.date.replace(/-/g, '')) - parseInt(b.date.replace(/-/g, ''))
+            })
+        })
+}
+AppState.initSongsPHP = function() {
+    fetch('http://test.sangle7.com/php/getMusicData.php')
+        .then(blob => blob.json())
+        .then((data) => {
+            this.musicData.push(...data)
+        })
+}
+
 AppState.changePlayAndPause = function() {
     this.pauseandplay = this.pauseandplay == 'fa fa-play' ? 'fa fa-pause' : 'fa fa-play';
 }
@@ -90,16 +107,19 @@ AppState.initArticle = function(a) {
     this.TOCTransfrom = 'translateX(0)';
     this.TOCCTransfrom = 'translateX(220px)';
     this.TOCcontroller = 'fa fa-angle-left';
+    let documentData = this.documentData
     let newArr = documentData.map((elem, index) => {
         return elem.name
     })
     let number = newArr.indexOf(a)
-    if (this.article == null || this.article.name !== documentData[number].name) {
-        this.article = documentData[number];
-        this.nextArticle = documentData[number + 1] || documentData[0];
-        this.previousArticle = documentData[number - 1] || documentData[documentData.length - 1];
-        this.getLikeNumber(documentData[number].name)
-        this.changeAriticle("../" + a + '.md')
+    if (number >= 0) {
+        if (this.article == null || this.article.name !== documentData[number].name) {
+            this.article = documentData[number];
+            this.nextArticle = documentData[number + 1] || documentData[0];
+            this.previousArticle = documentData[number - 1] || documentData[documentData.length - 1];
+            this.getLikeNumber(documentData[number].name)
+            this.changeAriticle("../" + a + '.md')
+        }
     }
 }
 AppState.MDtoHTML = function(value) {
@@ -175,7 +195,8 @@ AppState.poptipSubmit = function(a, b, c) {
         .then((text) => { // 如果AJAX成功，获得响应内容
             this.poptipsubmit = true;
         }).catch((status) => { // 如果AJAX失败，获得响应代码
-            console.log('ERROR: ' + status)
+            console
+                .log('ERROR: ' + status)
         });
 }
 AppState.showPoptip = function() {

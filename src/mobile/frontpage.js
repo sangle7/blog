@@ -39,6 +39,10 @@ export default @observer class Frontpage extends React.Component {
         };
     }
 
+    componentWillMount() {
+        AppState.initArticleList()
+    }
+
     handleHover() {
         AppState.showWechatImg();
     }

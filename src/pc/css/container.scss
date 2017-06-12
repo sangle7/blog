@@ -7,8 +7,9 @@
     margin-bottom: 100px;
     margin-right: 370px;
 }
+
 @media (max-width: 780px) {
-    .container{
+    .container {
         width: 90%;
         margin: 0 auto 100px auto;
     }
@@ -17,6 +18,7 @@
 .header {
     width: 100%;
     padding: 10px;
+    box-sizing: border-box;
     a {
         color: black;
     }
@@ -75,6 +77,7 @@
         background-color: #EBEBEB;
     }
 }
+
 .date {
     * {
         font-size: 14px;
@@ -114,7 +117,7 @@
 }
 
 .likebutton {
-    height: 36px;    
+    height: 36px;
     min-width: 80px;
     border-radius: 2px;
     margin: 10px 30px;
@@ -149,7 +152,7 @@
     }
 }
 
-.FloatingButton{
+.FloatingButton {
     height: 40px;
     width: 40px;
     position: fixed;
@@ -160,11 +163,11 @@
     line-height: 40px;
     font-size: 30px;
     text-align: center;
-    transition:.3s;
+    transition: .3s;
     cursor: pointer;
 }
 
-.abovefooter{
+.abovefooter {
     width: 100%;
     font-size: 14px;
     padding: 10px 30px;

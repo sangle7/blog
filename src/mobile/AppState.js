@@ -3,9 +3,6 @@ import {
 } from 'mobx';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import {
-    documentData
-} from './../data/data.js';
 
 
 marked.setOptions({
@@ -22,7 +19,7 @@ export const AppState = observable({
     musicNumber: 0,
     wechat: "none",
     articlecontent: null,
-    article: null,
+    article: { name: '', url: '', category: '', date: '' },
     mdcontent: null,
     poptipsubmit: false,
     poptipstyle: 'none',
@@ -35,11 +32,13 @@ export const AppState = observable({
     articlecache: {},
     likenumber: 0,
     likeheart: 'fa fa-heart-o',
-    likeflag: 0
+    likeflag: 0,
+    documentData: [],
+    musicData: []
 });
 
 AppState.init = function() {
-    this.article = null;
+    this.article = { name: '', url: '', category: '', date: '' };
     this.articlecontent = null;
     this.pauseandplay = 'fa fa-pause';
     this.mdcontent = null;
@@ -48,6 +47,25 @@ AppState.init = function() {
     this.likeheart = 'fa fa-heart-o';
     this.likeflag = 0;
 }
+AppState.initArticleList = function() {
+    let _documentData = [];
+    fetch('http://test.sangle7.com/php/getArticleList.php')
+        .then(blob => blob.json())
+        .then((data) => {
+            _documentData.push(...data)
+            this.documentData = _documentData.sort((b, a) => {
+                return parseInt(a.date.replace(/-/g, '')) - parseInt(b.date.replace(/-/g, ''))
+            })
+        })
+}
+AppState.initSongsPHP = function() {
+    fetch('http://test.sangle7.com/php/getMusicData.php')
+        .then(blob => blob.json())
+        .then((data) => {
+            this.musicData.push(...data)
+        })
+}
+
 AppState.changePlayAndPause = function() {
     this.pauseandplay = this.pauseandplay == 'fa fa-play' ? 'fa fa-pause' : 'fa fa-play';
 }
@@ -64,7 +82,7 @@ AppState.showMoreArticles = function() {
     this.articleNumber += 10;
 }
 AppState.initArticle = function(a) {
-    let _xxx = documentData.filter((elem) => {
+    let _xxx = this.documentData.filter((elem) => {
         if (elem.name == a) {
             return elem;
         }
