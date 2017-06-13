@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     name: "browser",
-    entry: "./src/components/pc/main.jsx",
+    entry: "./src/app-client.js",
     output: {
         path: path.join(__dirname, "/src/static-pc/build"),
         filename: '[name].js',

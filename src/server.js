@@ -3,9 +3,10 @@ import { Server } from 'http';
 import Express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
+import { matchPath } from 'react-router-dom';
+import { RouterContext } from 'react-router-dom';
 import routes from './routes';
-import NotFoundPage from './components/NotFoundPage';
+import NotFoundPage from './components/pc/ErrorPage';
 
 // initialize the server and configure support for ejs templates
 const app = new Express();
@@ -14,11 +15,11 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // define the folder that will be used for static assets
-app.use(Express.static(path.join(__dirname, 'static')));
+app.use(Express.static(path.join(__dirname, 'static-pc')));
 
-// universal routing and rendering
+//universal routing and rendering
 app.get('*', (req, res) => {
-    match({ routes, location: req.url },
+    matchPath({ routes, location: req.url },
         (err, redirectLocation, renderProps) => {
 
             // in case of error display the error message
@@ -47,6 +48,29 @@ app.get('*', (req, res) => {
         }
     );
 });
+// const routes = ['/', '/articles/编程', "/articles/生活", "/articles/编程/:id", "/articles/生活/:id", "/music", 'tools', "/music"];
+
+
+// app.get('*', (req, res) => {
+//     const match = routes.reduce((acc, route) => matchPath(req.url, route, { exact: true }) || acc, null);
+//     if (!match) {
+//         res.status(404).send(render(<NoMatch />));
+//         return;
+//     }
+//     let markup;
+//     if (renderProps) {
+//         // if the current route matched we have renderProps
+//         markup = renderToString(<RouterContext {...renderProps}/>);
+//     } else {
+//         // otherwise we can render a 404 page
+//         markup = renderToString(<NotFoundPage/>);
+//         res.status(404);
+//     }
+
+//     // render the index template with the embedded React markup
+//     return res.render('index', { markup });
+// });
+
 
 // start the server
 const port = process.env.PORT || 3000;

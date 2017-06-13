@@ -7,17 +7,17 @@ import {
     Switch
 } from 'react-router-dom';
 import {
-    AppState
-} from './AppState.js';
-import {
     observer
 } from 'mobx-react';
 
-import './components/pc/css/global.scss';
-import style from './components/pc/css/navbar.scss';
+import {
+    AppState
+} from './components/pc/AppState.js';
+// import './components/pc/css/global.scss';
+// import style from './components/pc/css/navbar.scss';
 import Sidebar from './components/pc/sidebar';
 import TOCbar from "./components/pc/TOCbar";
-import styleB from "./components/pc/css/container.scss";
+// import styleB from "./components/pc/css/container.scss";
 import Articlelist from "./components/pc/articlelist";
 import Article from "./components/pc/Article"
 import Musicplayer from "./components/pc/Musicplayer"

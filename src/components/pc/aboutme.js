@@ -1,33 +1,33 @@
 import React from "react";
-import style from "./css/container.scss";
+// import style from "./css/container.scss";
 import {
-	observer
+    observer
 } from 'mobx-react';
 import {
-	AppState
+    AppState
 } from './AppState.js'
 import hljs from 'highlight.js'
 
 export default @observer class Aboutme extends React.Component {
-	componentWillMount() {
-		AppState.changeAriticle("../articles/aboutme.md");
-		document.title = "Sangle的博客-关于我";
-	}
-	componentWillUnmount() {
-		hljs.initHighlighting.called = false;
-		AppState.init();
-	}
-	handlePrint() {
-		let newstr = this.refs.realdocument.innerHTML;
-		let oldstr = document.body.innerHTML;
-		document.body.innerHTML = newstr;
-		window.print();
-		document.body.innerHTML = oldstr;
-		return false;
-	}
-	render() {
-		return (
-			<div>
+    componentWillMount() {
+        AppState.changeAriticle("../articles/aboutme.md");
+        document.title = "Sangle的博客-关于我";
+    }
+    componentWillUnmount() {
+        hljs.initHighlighting.called = false;
+        AppState.init();
+    }
+    handlePrint() {
+        let newstr = this.refs.realdocument.innerHTML;
+        let oldstr = document.body.innerHTML;
+        document.body.innerHTML = newstr;
+        window.print();
+        document.body.innerHTML = oldstr;
+        return false;
+    }
+    render() {
+        return (
+            <div>
 			<header className={style.header}>关于我</header>
 				<div ref='realdocument'>
 				<section className={style.titlesec}> 
@@ -40,6 +40,6 @@ export default @observer class Aboutme extends React.Component {
 				</div>
 				<footer onClick={this.handlePrint.bind(this)} className={style.footer}>CLICK HERE TO <strong>PRINT</strong></footer>
 			</div>
-		)
-	}
+        )
+    }
 }
