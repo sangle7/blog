@@ -36,7 +36,7 @@ cmd >`mysql -h 主机名 -u 用户名 -p`
 
 对于一些较长的语句在命令提示符下可能容易输错, 因此我们可以通过任何文本编辑器将语句输入好后保存为 createtable.sql 的文件中, 通过命令提示符下的文件重定向执行执行该脚本。
 
-```mysql
+```sql
 create table students(
 		id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 		name CHAR(8) not null,

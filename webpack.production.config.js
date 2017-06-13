@@ -1,18 +1,15 @@
 const webpack = require('webpack')
 const path = require('path');
 
-const assetsPath = path.join(__dirname, "browser", "build");
-const assetsMobilePath = path.join(__dirname, "buildmobile", "build");
-
 
 module.exports = [{
     name: "browser",
     entry: {
         vendor: ['react', 'react-dom', 'react-router-dom', 'marked', 'highlight.js', 'mobx', 'mobx-react'],
-        main: "./src/pc/main.jsx"
+        main: "./src/components/pc/main.jsx"
     },
     output: {
-        path: assetsPath,
+        path: path.join(__dirname, "/src/static-pc/build"),
         publicPath: "/build/",
         filename: '[name].js'
     },
@@ -58,10 +55,10 @@ module.exports = [{
     name: "mobile",
     entry: {
         vendor: ['react', 'react-dom', 'react-router-dom', 'marked', 'highlight.js', 'mobx', 'mobx-react'],
-        main: "./src/mobile/main.jsx"
+        main: "./src/components/mobile/main.jsx"
     },
     output: {
-        path: assetsMobilePath,
+        path: path.join(__dirname, "/src/static-mobile/build"),
         publicPath: "/build/",
         filename: '[name].js'
     },

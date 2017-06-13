@@ -4,9 +4,9 @@ const path = require('path');
 
 module.exports = {
     name: "mobile",
-    entry: "./src/mobile/main.jsx",
+    entry: "./src/components/mobile/main.jsx",
     output: {
-        path: path.join(__dirname, "buildmobile/build"),
+        path: path.join(__dirname, "/src/static-mobile/build"),
         filename: 'bundle.js',
         publicPath: "/build/",
     },
@@ -16,7 +16,7 @@ module.exports = {
                 { from: /^\/$/, to: '/index.html' },
             ]
         },
-        contentBase: 'buildmobile'
+        contentBase: 'src/static-mobile'
     },
     devtool: 'inline-source-map',
     module: {

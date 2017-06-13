@@ -4,9 +4,9 @@ const path = require('path');
 
 module.exports = {
     name: "browser",
-    entry: "./src/pc/main.jsx",
+    entry: "./src/components/pc/main.jsx",
     output: {
-        path: path.join(__dirname, "browser/build"),
+        path: path.join(__dirname, "/src/static-pc/build"),
         filename: '[name].js',
         chunkFilename: '[name]-[id].js',
         publicPath: "/build/",
@@ -17,7 +17,7 @@ module.exports = {
                 { from: /^\/$/, to: '/index.html' },
             ]
         },
-        contentBase: 'browser'
+        contentBase: 'src/static-pc'
     },
     devtool: 'inline-source-map',
     module: {
