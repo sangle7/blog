@@ -1,6 +1,7 @@
 import path from 'path';
 import { Server } from 'http';
 import Express from 'express';
+import { documentData, musicData } from './data/data.js'
 // import React from 'react';
 // import { renderToString } from 'react-dom/server';
 // import { matchPath } from 'react-router-dom';
@@ -17,9 +18,17 @@ const server = new Server(app);
 
 // define the folder that will be used for static assets
 app.get('/', function(req, res) {
-    console.log('User-Agent: ' + req.headers['user-agent']);
     handleUA(req, res)
 });
+
+app.get('/getArticleList', function(req, res) {
+    res.send(JSON.stringify(documentData));
+})
+
+app.get('/getMusicData', function(req, res) {
+    res.send(JSON.stringify(musicData));
+})
+
 
 function handleUA(req, res) {
     const ua = req.headers['user-agent']

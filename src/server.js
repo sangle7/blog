@@ -10,6 +10,8 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _data = require('./data/data.js');
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,8 +31,15 @@ var server = new _http.Server(app);
 
 // define the folder that will be used for static assets
 app.get('/', function(req, res) {
-    console.log('User-Agent: ' + req.headers['user-agent']);
     handleUA(req, res);
+});
+
+app.get('/getArticleList', function(req, res) {
+    res.send(JSON.stringify(_data.documentData));
+});
+
+app.get('/getMusicData', function(req, res) {
+    res.send(JSON.stringify(_data.musicData));
 });
 
 function handleUA(req, res) {

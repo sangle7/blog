@@ -66,7 +66,7 @@ AppState.init = function() {
 }
 AppState.initArticleList = function() {
     let _documentData = [];
-    fetch('http://test.sangle7.com/php/getArticleList.php')
+    fetch('/getArticleList')
         .then(blob => blob.json())
         .then((data) => {
             _documentData.push(...data)
@@ -76,7 +76,7 @@ AppState.initArticleList = function() {
         })
 }
 AppState.initSongsPHP = function() {
-    fetch('http://test.sangle7.com/php/getMusicData.php')
+    fetch('/getMusicData')
         .then(blob => blob.json())
         .then((data) => {
             this.musicData.push(...data)
