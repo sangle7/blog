@@ -1,4 +1,10 @@
-export let recommendData = [{
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var recommendData = exports.recommendData = [{
     name: 'CommonsChunkPlugin的正确姿势',
     url: '/articles/编程/CommonsChunkPlugin的正确姿势',
 }, {
@@ -21,7 +27,7 @@ export let recommendData = [{
     url: '/articles/编程/博客搭建过程整理'
 }]
 
-export let documentData = [{
+var documentData = exports.documentData = [{
     name: '使用000webhost虚拟空间搭建网站',
     url: '/articles/编程/使用000webhost虚拟空间搭建网站',
     date: '2017-04-04',
@@ -248,7 +254,7 @@ export let documentData = [{
     date: '2017-01-11'
 }]
 
-export let musicData = [{
+var musicData = exports.musicData = [{
     name: 'Shape of You',
     artist: 'Ed Sheeran',
     url: 'http://link.hhtjim.com/163/451703096.mp3',
