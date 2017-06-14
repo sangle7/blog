@@ -7,7 +7,7 @@
         "deploy": "set NODE_ENV=production && webpack -p --config webpack.production.config.js",
         "build": "webpack-dev-server --inline",
         "dev": "webpack-dev-server --inline --config webpack.mobile.config.js",
-        "pm2": "pm2  src/server.js"
+        "pm2": "pm2  start ./src/server.js"
     },
     "author": "",
     "license": "ISC",
