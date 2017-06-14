@@ -1,5 +1,5 @@
 import React from "react";
-// import style from "./css/sidebar.scss"
+import style from "./css/sidebar.scss"
 import {
     observer
 } from 'mobx-react';

@@ -1,5 +1,5 @@
 import React from "react";
-// import style from "./css/markdowneditor.scss";
+import style from "./css/markdowneditor.scss";
 import hljs from 'highlight.js';
 import {
     AppState

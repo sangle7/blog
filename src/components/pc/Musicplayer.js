@@ -1,5 +1,5 @@
 import React from "react";
-// import style from "./css/musicplayer.scss";
+import style from "./css/musicplayer.scss";
 import {
     BrowserRouter as Router,
     Route,

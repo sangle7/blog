@@ -1,5 +1,5 @@
  import React from "react";
- // import style from "./css/TOCbar.scss";
+ import style from "./css/TOCbar.scss";
  import {
      observer
  } from 'mobx-react';

@@ -87,10 +87,6 @@ const Article = asyncComponent(() =>
 	}
 	handleRouteChange() {
 		document.body.scrollTop = 0;
-		this.refs.loading.style.opacity='1';
-		setTimeout(()=>{
-			this.refs.loading.style.opacity='0';
-		},2000)
 	}
 	backtotop() {
 		var timer = null;
@@ -179,13 +175,13 @@ const Article = asyncComponent(() =>
 			'link': '/aboutme',
 			'name': '关于我'
 		}].map((elem, index) => {
-			return <Link to={elem.link} key={index} ><li onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleTransparent.bind(this)}>{elem.name}</li></Link>
+			return <Link to={elem.link} key={index} ><li onClick={this.handleRouteChange.bind(this)} onMouseOver={this.handleColorDark.bind(this)} onMouseOut={this.handleTransparent.bind(this)}>{elem.name}</li></Link>
 		})
 		return (<Router>
 			<div>
 			<div className={style.title} style={{'background':AppState.colorStyle.mainColor}}>
 		<ul className={style.ul}>
-		<li className={style.logo}><Link to='/'>Sangle</Link></li>
+		<li onClick={this.handleRouteChange.bind(this)} className={style.logo}><Link to='/'>Sangle</Link></li>
 		{navlist}
 		<a href="http://notes.sangle7.com" target="_blank"><li style={{'float':'right'}}><i className="fa fa-pencil-square" aria-hidden="true"></i> Scratch</li></a>
 			</ul>

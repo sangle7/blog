@@ -120,7 +120,18 @@ AppState.initArticle = function(a) {
             this.getLikeNumber(documentData[number].name)
             this.changeAriticle("../" + a + '.md')
         }
+    } else {
+        this.handleWrongArt()
     }
+}
+AppState.handleWrongArt = function() {
+    this.article = {
+        name: 'Sorry',
+        url: '',
+        category: 'ERROR',
+        date: 'ERROR'
+    }
+    this.articlecontent = "<h3>We can't find the article.</h3>"
 }
 AppState.MDtoHTML = function(value) {
     hljs.initHighlighting.called = false;
@@ -142,8 +153,8 @@ AppState.changeAriticle = function(aaa) {
                 this.articlecache[aaa] = this.articlecontent
                 hljs.initHighlighting();
                 hljs.initHighlighting.called = false;
-
             })
+            .catch((err) => this.handleWrongArt())
     }
 }
 AppState.showOrHideTOC = function() {
@@ -195,8 +206,7 @@ AppState.poptipSubmit = function(a, b, c) {
         .then((text) => { // 如果AJAX成功，获得响应内容
             this.poptipsubmit = true;
         }).catch((status) => { // 如果AJAX失败，获得响应代码
-            console
-                .log('ERROR: ' + status)
+            console.log('ERROR: ' + status)
         });
 }
 AppState.showPoptip = function() {
