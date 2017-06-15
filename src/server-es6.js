@@ -15,7 +15,12 @@ const server = new Server(app);
 // app.set('view engine', 'ejs');
 // app.set('views', path.join(__dirname, 'views'));
 
-
+if (!Array.prototype.shuffle) {
+    Array.prototype.shuffle = function() {
+        for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+        return this;
+    };
+}
 // define the folder that will be used for static assets
 app.get('/', function(req, res) {
     handleUA(req, res)
@@ -26,7 +31,7 @@ app.get('/getArticleList', function(req, res) {
 })
 
 app.get('/getMusicData', function(req, res) {
-    res.send(JSON.stringify(musicData));
+    res.send(JSON.stringify(musicData.shuffle()));
 })
 
 

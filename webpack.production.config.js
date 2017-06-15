@@ -57,7 +57,7 @@ module.exports = [{
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new ExtractTextPlugin("styles.css"),
+        new ExtractTextPlugin("styles-pc.css"),
     ]
 }, {
     name: "mobile",
@@ -110,6 +110,6 @@ module.exports = [{
                 NODE_ENV: '"production"'
             }
         }),
-        new ExtractTextPlugin("styles.css"),
+        new ExtractTextPlugin("styles-mobile.css"),
     ]
 }]

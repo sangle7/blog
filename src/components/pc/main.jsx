@@ -74,7 +74,7 @@ const Article = asyncComponent(() =>
 	componentDidMount() {
 		// loadMusicplayer(() => {})
 		window.onscroll = () => {
-			if (window.scrollY > document.body.clientHeight) {
+			if (window.scrollY > window.screen.availHeight) {
 				this.setState({
 					display: 'block'
 				})

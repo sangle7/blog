@@ -13,7 +13,8 @@ var _express2 = _interopRequireDefault(_express);
 var _data = require('./data/data.js');
 
 function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj }; }
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
 // import React from 'react';
 // import { renderToString } from 'react-dom/server';
@@ -28,7 +29,12 @@ var server = new _http.Server(app);
 // app.set('view engine', 'ejs');
 // app.set('views', path.join(__dirname, 'views'));
 
-
+if (!Array.prototype.shuffle) {
+    Array.prototype.shuffle = function() {
+        for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+        return this;
+    };
+}
 // define the folder that will be used for static assets
 app.get('/', function(req, res) {
     handleUA(req, res);
@@ -39,7 +45,7 @@ app.get('/getArticleList', function(req, res) {
 });
 
 app.get('/getMusicData', function(req, res) {
-    res.send(JSON.stringify(_data.musicData));
+    res.send(JSON.stringify(_data.musicData.shuffle()));
 });
 
 function handleUA(req, res) {
