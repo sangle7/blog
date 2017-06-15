@@ -83,7 +83,7 @@ export default @observer class Musicplayer extends React.Component {
             </div>
         </div>
         <div className={style.icons}><i className="fa fa-heart" aria-hidden="true"></i><i onClick={this.nextSong.bind(this)} className="fa fa-step-forward" aria-hidden="true"></i><i onClick={this.pause.bind(this)} ref='pauseandplay' className={AppState.pauseandplay} aria-hidden="true"></i></div>
-        <audio ref='audio' src={playing.url} autoPlay="autoplay">
+        <audio ref='audio' src={'/musics/'+playing.name+'.mp3'} autoPlay="autoplay">
         </audio>
         <img src={playing.cover} height="250" width="250" />
     </div>
