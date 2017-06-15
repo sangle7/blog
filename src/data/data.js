@@ -33,6 +33,21 @@ var documentData = exports.documentData = [{
     date: '2017-04-04',
     category: '编程'
 }, {
+    "name": "vultr建站系列-配置LAMP",
+    "url": "/articles/编程/vultr建站系列-配置LAMP",
+    "date": "2017-06-13",
+    "category": "编程"
+}, {
+    "name": "vultr建站系列-注册与购买",
+    "url": "/articles/编程/vultr建站系列-注册与购买",
+    "date": "2017-06-11",
+    "category": "编程"
+}, {
+    "name": "vultr建站系列-搭建SS与加速",
+    "url": "/articles/编程/vultr建站系列-搭建SS与加速",
+    "date": "2017-06-12",
+    "category": "编程"
+}, {
     name: 'JS30题-06-Type Ahead',
     url: '/articles/编程/JS30题-06-Type Ahead',
     date: '2017-06-07',
