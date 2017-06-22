@@ -7,6 +7,16 @@ Sangle，1997，皇马球迷，现就读于sysu。
 主要用来记录编程笔记和心得，文章持续增加中...
 博客刚刚上线，各项功能完善中...进度会更新在这个板块
 
+——2017/06/19 update——
+
+1. 迁移至 node + Nginx 
+2. 重写 *notes.sangle7.com* 
+   + 从 *AWS* 迁移到服务器
+   + 前端基于 react  重构
+   + 部分样式使用了 react-bootstrap
+   + 现在可以上传不超过5M的文件了
+3. 新增网易云批量下载模块，为音乐栏提供资源支持
+
 ——2017/06/12 update——
 
 1. 由000webhost迁移至Vultr (Debian+Apache)
