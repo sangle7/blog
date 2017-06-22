@@ -10,6 +10,18 @@ var documentData = exports.documentData = [{
     date: '2017-04-04',
     category: '编程'
 }, {
+    name: '网易云音乐批量下载脚本',
+    url: '/articles/编程/网易云音乐批量下载脚本',
+    date: '2017-06-22',
+    category: '编程',
+    "recommand": "true"
+}, {
+    name: 'webpack3 正式发布',
+    url: '/articles/编程/webpack3 正式发布',
+    date: '2017-06-20',
+    category: '编程',
+    "recommand": "true"
+}, {
     name: 'node应用的部署',
     url: '/articles/编程/node应用的部署',
     date: '2017-06-15',

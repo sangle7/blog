@@ -1,12 +1,6 @@
----
-typora-copy-images-to: 七牛图床
----
-
-# 🍾🚀webpack3 正式发布🚀🍾
-
 终于走到这里，太美了。
 
-## 范围提升，“魔法注释”，以及更多新特性！
+## 作用域提升，“魔法注释”，以及更多新特性！
 
 原文：[https://medium.com/webpack/webpack-3-official-release-15fd2dd8f07b](http://link.zhihu.com/?target=https%3A//medium.com/webpack/webpack-3-official-release-15fd2dd8f07b)
 
@@ -36,11 +30,11 @@ yarn add webpack@3.0.0 --dev
 
 #### 🔬作用域提升（Scope Hoisting）🔬
 
-范围提升是webpack 3的旗舰功能。在打包时，Webpack将您的捆绑包中的每个模块都将被包装在单独的函数闭包(function closure) 中。这些闭包会使您的JavaScript在浏览器中执行速度更慢。相比之下，像 Closure Compiler 和 RollupJS ‘hoist’ 这样的工具可以将所有模块包装在一个大的闭包内，从而使您的代码在浏览器中具有更快的执行速度。
+作用域提升是webpack 3的旗舰功能。在打包时，Webpack将您的 bundle 中的每个模块都将被包装在单独的函数闭包(function closure) 中。这些闭包会使您的JavaScript在浏览器中执行速度更慢。相比之下，像 Closure Compiler 和 RollupJS ‘hoist’ 这样的工具可以将所有模块包装在一个大的闭包内，从而使您的代码在浏览器中具有更快的执行速度。
 
 ![1497929168082](http://onvaoy58z.bkt.clouddn.com/1497929168082.png)
 
-而现在，使用webpack 3，您现在可以**在配置中添加下面的插件以启用范围提升**：
+而现在，使用webpack 3，您现在可以**在配置中添加下面的插件以启用作用域提升**：
 
 ```javascript
 module.exports = {  
@@ -50,13 +44,13 @@ module.exports = {
 };
 ```
 
-范围提升是基于ECMAScript Module语法实现的一个特征。通过这个，webpack可以根据你正在使用什么样的模块和[一些其他条件](https://medium.com/webpack/webpack-freelancing-log-book-week-5-7-4764be3266f5)来回退到正常的捆绑。
+作用域提升是基于ECMAScript Module语法实现的一个特征。通过这个，webpack可以根据你正在使用什么样的模块和[一些其他条件](https://medium.com/webpack/webpack-freelancing-log-book-week-5-7-4764be3266f5)来回退到正常的捆绑。
 
 为了了解什么触发了这些回退，我们添加了一个`--display-optimization-bailout` cli标志，它将告诉你是什么导致的回退。
 
 ![1497929229855](http://onvaoy58z.bkt.clouddn.com/1497929229855.png)
 
-同时，由于范围提升会移除模块外的函数包装，你可能会看到一些小的体积改进。然而，更显着的改进是JavaScript在浏览器中加载的速度。 如果您在比较使用之前和之后时发现加载速度取得了非常棒的改进，请随时回复一些数据，我们将很荣幸分享！
+同时，由于作用域提升会移除模块外的函数包装，你可能会看到一些小的体积改进。然而，更显着的改进是JavaScript在浏览器中加载的速度。 如果您在比较使用之前和之后时发现加载速度取得了非常棒的改进，请随时回复一些数据，我们将很荣幸分享！
 
 ### 🔮 魔法注释 ”Magic Comments” 🔮
 
