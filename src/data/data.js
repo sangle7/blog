@@ -44,6 +44,11 @@ var documentData = exports.documentData = [{
     "date": "2017-06-12",
     "category": "编程"
 }, {
+    "name": "便签应用的构建-文件上传",
+    "url": "/articles/编程/便签应用的构建-文件上传",
+    "date": "2017-06-23",
+    "category": "编程"
+}, {
     name: 'JS30题-06-Type Ahead',
     url: '/articles/编程/JS30题-06-Type Ahead',
     date: '2017-06-07',
