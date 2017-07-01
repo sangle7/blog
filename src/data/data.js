@@ -10,6 +10,11 @@ var documentData = exports.documentData = [{
     date: '2017-04-04',
     category: '编程'
 }, {
+    name: 'MUMmer的安装和使用',
+    url: '/articles/编程/MUMmer的安装和使用',
+    date: '2017-07-01',
+    category: '编程'
+}, {
     name: '网易云音乐批量下载脚本',
     url: '/articles/编程/网易云音乐批量下载脚本',
     date: '2017-06-22',
